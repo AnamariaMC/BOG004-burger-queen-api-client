@@ -1,9 +1,13 @@
 import React from 'react'
-import { Formik } from 'formik'
+import { Formik, Form, Field } from 'formik'
 import hamburger from '../lib/hamburger.png'
 import '../login.css'
+import axios from 'axios';
+const Apiurl = 'http://localhost:8080/'
 
 const Formulario = () => {
+   
+ 
 	return (      
 		<div className='contenedor'>
       <img className='hamburger' src={hamburger} alt="hamburger" />
@@ -14,7 +18,6 @@ const Formulario = () => {
         }}
         validate={(valores) => {
           let errores = {};
-
           //validación email
           if(!valores.email){
             errores.email = 'Por favor ingresa un email'
@@ -24,48 +27,52 @@ const Formulario = () => {
           //validación contraseña
           if(!valores.password){
             errores.password = 'Por favor ingresa una contraseña'
-          } else if (!/^(?=.*?[a-z])(?=.*?[0-9])[A-Za-z0-9]{6,}$/
-          .test(valores.password)){
-              errores.password = 'Debe tener minimo 6 letras y almenos un numero'
-          }
-          
+          } else if (!/^([0-9]){6,}$/.test(valores.password)){
+            errores.password = 'Debe tener minimo 6 letras y almenos un numero'
+          }          
           return errores;
         }}
         onSubmit={(valores) => {
-          console.log(valores);
+          let data = { email: valores.email, password: valores.password };
+          let url = Apiurl + 'login'
+          axios.post(url, data)
+          .then(function (response) {
+            console.log('que responde:',response);
+          })
+          .catch(function (error) {
+            console.log('se fue al erro?: ',error);
+          })
+          
+          console.log(valores.email, valores.password);
           console.log('Formulario enviado');
         }}
       >
-        {({values, errors, touched, handleSubmit, handleChange, handleBlur }) => (
-          <form className="formulario" onSubmit={handleSubmit}>
+        {({values, errors, touched}) => (
+          <Form className="formulario">
             <div>
               <label htmlFor="email">Correo</label>
-              <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              placeholder="usuario@bq.com"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              <Field 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="usuario@bq.com"
+                value={values.email}
               />
               {touched.email && errors.email && <div className='error'>{errors.email}</div>}
             </div>
             <div>
               <label htmlFor="password">Contraseña</label>
-              <input 
-              type="password" 
-              id="password" 
-              name="password" 
-              placeholder="******"
-              value={values.placeholder}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              <Field 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="******"
+                value={values.placeholder}              
               />
               {touched.password && errors.password && <div className='error'>{errors.password}</div>}
             </div>
             <button type="submit">Ingresar</button>
-          </form>
+          </Form>
         )}
       </Formik>
 		</div>
