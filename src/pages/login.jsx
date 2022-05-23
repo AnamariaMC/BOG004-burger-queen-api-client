@@ -1,12 +1,13 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik'
+import { useNavigate } from 'react-router';
+import {login, saveIdUser} from '../petitions'
 import hamburger from '../lib/hamburger.png'
 import '../login.css'
-import axios from 'axios';
-const Apiurl = 'http://localhost:8080/'
 
 const Formulario = () => {
-   
+
+  const navigate = useNavigate(); 
  
 	return (      
 		<div className='contenedor'>
@@ -28,23 +29,29 @@ const Formulario = () => {
           if(!valores.password){
             errores.password = 'Por favor ingresa una contraseña'
           } else if (!/^([0-9]){6,}$/.test(valores.password)){
-            errores.password = 'Debe tener minimo 6 letras y almenos un numero'
+            errores.password = 'Contraseña incorrecta'
           }          
           return errores;
         }}
-        onSubmit={(valores) => {
+       onSubmit ={(valores, { resetForm }) => {                  
           let data = { email: valores.email, password: valores.password };
-          let url = Apiurl + 'login'
-          axios.post(url, data)
-          .then(function (response) {
+          login(data)
+          .then(function (response) { 
+            saveIdUser(response.data)           
+            console.log('que es saveIdUser:',saveIdUser(response.data));
             console.log('que responde:',response);
+            const activeUser = JSON.parse(sessionStorage.user);
+            const userRole = activeUser.user.roles;
+           //Cambio de vistas con captura del id
+            navigate(`/${Object.keys(userRole)}`, { replace: true })
           })
           .catch(function (error) {
             console.log('se fue al erro?: ',error);
-          })
-          
+          //   // aca el mensaje de correo y/o contraseña incorrectos
+           })          
           console.log(valores.email, valores.password);
-          console.log('Formulario enviado');
+          console.log('Formulario enviado');  
+          resetForm()                               
         }}
       >
         {({values, errors, touched}) => (

@@ -1,20 +1,23 @@
-import axios from "axios"
-let url = 'http://localhost:8080/';
+import axios from "axios";
+const url = 'http://localhost:8080/'
 
-export function loginPetition() {
-  let urlLogin = url +'login';
-  return axios.get(urlLogin, {
-    params: {
-      email: '',
-      password: '',
-    }
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })   
+// Validación del ingreso con axios
+const login = (data) => {
+  return axios.post(url+'login', data);
+};
+// FUNCION PARA GUARDAR USUARIO LOGUEADO EN SESSIONSTORAGE
+const saveIdUser = (user) => {
+  sessionStorage.setItem('user', JSON.stringify(user));
+};
+const getUser = (user) => {
+  return axios.post(url+'users', user);
 }
+export {
+  login,
+  saveIdUser,
+  getUser
+}
+
+
 
  
