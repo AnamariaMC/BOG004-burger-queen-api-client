@@ -3,7 +3,7 @@ import React from 'react'
 export default function Chef() {
   return (
     <div>
-      <h3>Vista del Chef</h3>
+      <h1 style={{color:"#f1f1f1"}} >Vista del Chef</h1>
     </div>
   )
 }

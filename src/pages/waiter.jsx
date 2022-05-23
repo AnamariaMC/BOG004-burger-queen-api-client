@@ -1,9 +1,13 @@
 import React from 'react'
+import '../waiter.css'
+import Head from '../components/head'
 
 export default function Waiter() {
   return (
+    <>
     <div>
-      <h2> Vista de los meseros</h2>
+      <Head text1 ='Ordenes' text2 ='Pedidos'/>
     </div>
+    </>
   )
 }

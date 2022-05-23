@@ -25,18 +25,18 @@ body {
 	margin-top: 20px;
 }
 
-.formulario {
+.LoginForm {
 	
 	border-radius: 5px;
 	padding: 20px;
 	
 }
 
-.formulario > div {
+.LoginForm > div {
 	margin-bottom: 20px;
 }
 
-.formulario label {
+.LoginForm label {
 	display: block;
 	font-weight: 600;
 	font-size: 14px;
@@ -44,8 +44,8 @@ body {
 	color: #f6f1f1;
 }
 
-.formulario input,
-.formulario textarea {
+.LoginForm input,
+.LoginForm textarea {
 	font-family: 'Open Sans', sans-serif;
 	width: 100%;
 	border-radius: 5px;
@@ -57,18 +57,18 @@ body {
   background: #DFC020;
 }
 
-.formulario input:focus {
+.LoginForm input:focus {
 	outline: none;
 	border: 2px solid #0085FF;
 }
 
-.formulario .error {
+.LoginForm .error {
 	color: #DFC020;
 	font-weight: 600;
 	font-size: 12px;
 }
 
-.formulario button[type="submit"] {
+.LoginForm button[type="submit"] {
 	display: block;
 	background: #772E02;
 	font-weight: 600;
@@ -83,17 +83,17 @@ body {
 	transition: .3s ease all;
 }
 
-.formulario button[type="submit"]:hover {
+.LoginForm button[type="submit"]:hover {
 	background: #0051ff;
 }
 
-.formulario .exito {
+.LoginForm .exito {
 	text-align: center;
 	font-size: 14px;
 	padding-top: 20px;
 	color: #02a802;
 }
 
-.formulario input[type="radio"] {
+.LoginForm input[type="radio"] {
 	width: auto;
 }

@@ -5,7 +5,7 @@ import {login, saveIdUser} from '../petitions'
 import hamburger from '../lib/hamburger.png'
 import '../login.css'
 
-const Formulario = () => {
+const LoginForm = () => {
 
   const navigate = useNavigate(); 
  
@@ -43,19 +43,19 @@ const Formulario = () => {
             const activeUser = JSON.parse(sessionStorage.user);
             const userRole = activeUser.user.roles;
            //Cambio de vistas con captura del id
-            navigate(`/${Object.keys(userRole)}`, { replace: true })
+            navigate(`/${Object.keys(userRole)}`)
           })
           .catch(function (error) {
             console.log('se fue al erro?: ',error);
           //   // aca el mensaje de correo y/o contraseña incorrectos
            })          
           console.log(valores.email, valores.password);
-          console.log('Formulario enviado');  
+          console.log('LoginForm enviado');  
           resetForm()                               
         }}
       >
         {({values, errors, touched}) => (
-          <Form className="formulario">
+          <Form className="LoginForm">
             <div>
               <label htmlFor="email">Correo</label>
               <Field 
@@ -87,4 +87,4 @@ const Formulario = () => {
 	);
 }
 
-export default Formulario;
+export default LoginForm;
