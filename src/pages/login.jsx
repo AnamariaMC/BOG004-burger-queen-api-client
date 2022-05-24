@@ -3,7 +3,7 @@ import { Formik, Form, Field } from 'formik'
 import { useNavigate } from 'react-router';
 import {login, saveIdUser} from '../petitions'
 import hamburger from '../lib/hamburger.png'
-import '../login.css'
+import '../css/login.css'
 
 const LoginForm = () => {
 
