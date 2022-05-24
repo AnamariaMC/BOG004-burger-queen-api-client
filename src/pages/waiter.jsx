@@ -1,5 +1,5 @@
 import React from 'react'
-import '../waiter.css'
+import '../css/waiter.css'
 import Head from '../components/head'
 
 export default function Waiter() {
@@ -8,6 +8,7 @@ export default function Waiter() {
     <div>
       <Head text1 ='Ordenes' text2 ='Pedidos'/>
     </div>
+    
     </>
   )
 }
