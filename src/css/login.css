@@ -6,7 +6,7 @@
 	box-sizing: border-box;
 }
 body {
-	background-image: url('./lib/fondo.png');
+	background-image: url('../lib/fondo.png');
     background-size: cover;
 	font-family: 'Raleway', sans-serif;
  

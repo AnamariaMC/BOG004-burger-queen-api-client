@@ -3,6 +3,9 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Chef from '../pages/chef.jsx';
 import Waiter from '../pages/waiter.jsx';
 import Admin  from '../pages/admin.jsx';
+import Order from '../components/order.jsx';
+import List from '../components/list.jsx';
+
 
 
 export const RoutesId = () => {
@@ -11,7 +14,10 @@ export const RoutesId = () => {
         <Routes>      
           {
           session.user.roles.waiter ? (
-            <Route path='waiter' element={<Waiter/>}></Route>
+            <Route path='waiter' element={<Waiter/>}>
+              <Route path='/waiter/order' element={<Order/>}></Route>
+              <Route path='/waiter/list' element={<List/>}></Route>
+            </Route>
           ) : null
         }
         {
