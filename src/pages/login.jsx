@@ -38,7 +38,7 @@ const LoginForm = () => {
           login(data)
           .then(function (response) { 
             saveIdUser(response.data)           
-            console.log('que es saveIdUser:',saveIdUser(response.data));
+            //console.log('que es saveIdUser:',saveIdUser(response.data));
             console.log('que responde:',response);
             const activeUser = JSON.parse(sessionStorage.user);
             const userRole = activeUser.user.roles;
