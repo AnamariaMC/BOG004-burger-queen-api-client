@@ -3,8 +3,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Chef from '../pages/chef.jsx';
 import Waiter from '../pages/waiter.jsx';
 import Admin  from '../pages/admin.jsx';
-import Order from '../components/order.jsx';
-import List from '../components/list.jsx';
+import Order from '../componentsWaiter/order.jsx';
+import List from '../componentsWaiter/list.jsx';
 
 
 
