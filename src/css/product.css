@@ -3,9 +3,18 @@
   flex-direction: column;
   width: 150px;
   margin-bottom: 5px;
-  img {
-      width: 100px;
-      height: auto;
-      align-self: center;
-  }  
+   
+}
+.ollProducts {
+  margin: 20px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.productsMenu {
+  display: flex;
+  
 }
