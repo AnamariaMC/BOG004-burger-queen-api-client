@@ -1,6 +1,8 @@
 import React from 'react'
 import '../css/waiter.css'
-import Head from '../components/head'
+import Head from '../componentsWaiter/head'
+
+
 
 export default function Waiter() {
   return (
