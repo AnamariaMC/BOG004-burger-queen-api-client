@@ -12,12 +12,24 @@ const saveIdUser = (user) => {
 const getUser = (user) => {
   return axios.post(url+'users', user);
 }
+const getUserData = () => {
+  return JSON.parse(sessionStorage.getItem('user'));
+}
+
+const getToken = () => {
+  return JSON.parse(sessionStorage.getItem('user'));;
+  
+}
+
+const getId = () => {
+ return getUserData().user.id;
+}
+
 export {
   login,
   saveIdUser,
-  getUser
+  getUser,
+  getUserData,
+  getToken,
+  getId,
 }
-
-
-
- 
