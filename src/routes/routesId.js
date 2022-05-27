@@ -15,7 +15,7 @@ export const RoutesId = () => {
           {
           session.user.roles.waiter ? (
             <Route path='waiter' element={<Waiter/>}>
-              <Route path='/waiter/order' element={<Order/>}></Route>
+              <Route index element={<Order/>}></Route>
               <Route path='/waiter/list' element={<List/>}></Route>
             </Route>
           ) : null
