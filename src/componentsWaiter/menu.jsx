@@ -11,9 +11,11 @@ const Menu = (props) => {
     onClick={() =>addItem(props.item)}>
       
       <img src={props.image} alt={props.name} />
-      <p>{props.name}</p>
-      <p>${props.price}</p>
-      <p>{props.type}</p>
+      <div className="product-name-price"> 
+        <p>{props.name}</p>
+        <p className='product-price'>${props.price}</p>
+     </div>
+      {/* <p>{props.type}</p> */}
     </div>
   );
 };
