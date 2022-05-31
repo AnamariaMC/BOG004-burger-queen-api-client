@@ -1,0 +1,85 @@
+ td img{
+     margin: 0 auto;
+ }
+ .summary{
+     /* gap: 10px; */
+    background-color: #6b6a655c;
+    display: grid;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    }
+
+.orderSummary{
+    /* display: flex; */
+    display: inline-block;
+    /* gap: 10px; */
+    justify-content: space-around;
+    padding: 50px;
+        
+}
+
+.summaryTable{
+    color: aliceblue;
+    display: flex; 
+    /* display: grid; */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20rem;
+   
+}
+
+.itemcontent{
+ /* display: flex;
+ justify-content: space-around;
+ align-items: center; */
+ /* display: grid;
+ grid-gap: 10px;
+ grid-template-columns: 100px 1fr;
+ padding: 10rem; */
+}
+
+
+
+.remove {
+    background-color: #DFC020;
+    width: 2rem;
+    height: 2rem;
+}
+
+.add{
+    background-color: #DFC020;
+    width: 2rem;
+    height: 2rem;
+}
+
+.delete{
+    background-color: #DFC020;
+    width: 2rem;
+    height: 2rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-cancel{
+    border-radius: 8px;
+    background-color: #DFC020;
+    height: 2rem;
+    width: 6rem;
+   
+}
+
+.btn-confirm{
+    background-color: #DFC020;
+    border-radius: 8px;
+    height: 2rem;
+    width: 6rem;
+}
+
+.total {
+    width:  20vw;
+    background-color: rgba(240, 233, 146, 0.616);
+}
+

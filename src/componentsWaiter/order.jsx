@@ -10,9 +10,9 @@ export default function Order() {
     <> 
       <CartProvider>
       <div>
-        <h1 style={{color:"#f1f1f1"}}>Estas son las ordenes </h1>
+        <h1 style={{color:"#f1f1f1", fontSize:'30px', fontWeight:'bold', textAlign:'center'}}>Menu</h1>
       </div>
-      <div className='productos' >
+      <div>
         <ProductsMenu  />
       </div>
       <div className='resumen' >

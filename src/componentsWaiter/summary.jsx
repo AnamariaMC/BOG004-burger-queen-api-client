@@ -1,5 +1,8 @@
+import '../css/summary.css'
 import React from 'react'
 import { useCart } from 'react-use-cart'
+import { getToken } from '../petitions';
+import { ordenPetition } from '../orderpetitions';
 
 export default function Summary() {
   const { isEmpty, 
@@ -11,20 +14,38 @@ export default function Summary() {
     removeItem,
     emptyCart,
      } = useCart();
-     if (isEmpty) return <h1 className='text-cemter'>Resumen del pedido </h1>
+
+     const createOrder =() =>{
+      const token = getToken()
+      ordenPetition(token, items)
+      .then((response)=> {
+        console.log(response)
+      })
+    }
+
+
+     if (isEmpty) return <h1 className='text-center'>Resumen del pedido </h1>
   return (
     <section className='summary'>
-      <h1 style={{color:"#f1f1f1"}}>productos ({totalUniqueItems}) total productos: ({totalItems}) </h1>
+      <h2 style={{color:"#f1f1f1", fontSize:'20px', fontWeight:'bold', textAlign:'center'}}> RESUMEN DEL PEDIDO</h2>
         {console.warn(items)}
-      <table>
+      <div>
+        <h3 style={{color:"#f1f1f1", fontWeight:'bold', textAlign:'center', justifyContent:'space-between'}}>Productos ({totalUniqueItems}) Total Productos: ({totalItems})</h3>
+      </div>
+      <table className='summaryTable'>
         <div className='orderSummary'>
           {items.map((item,index)=>{
             return(
-              <div key={index}>            
-                <img src={item.image} style={{height:'5rem'}} alt="" />            
-                {item.name}
-                {item.price}
-                ({item.quantity})
+              <tr key={index}>
+              <div classname='ContentSummary' >    
+               <td classname='itemcontent'>     
+                <img src={item.image} style={{height:'5rem'}} alt="" />      
+                </td>       
+                <td style={{color:"#f1f1f1", fontSize:'20px', fontWeight:'bold'}}> {item.name} </td> 
+                <td > {item.price} </td>
+                <td> ({item.quantity})</td>
+                </div>
+                <td>
                 <button 
                   className='remove'
                   onClick={()=> updateItemQuantity(item.id, item.quantity - 1)}
@@ -37,22 +58,23 @@ export default function Summary() {
                 className='delete'
                 onClick={()=> removeItem(item.id)} 
                 > 🗑️ </button>
-              </div>
+                </td>
+               </tr>
             )
           })}
         </div>
       </table>
       <div>
         <div className='total'>
-          <h2 style={{color:"#f1f1f1"}}>Precio Total: $ {cartTotal} </h2>
+          <h2 style={{color:"#f1f1f1"}}> Total: $ {cartTotal} </h2>
         </div>
         <div className='buttons'>
           <button className='btn-cancel'
           onClick={()=> emptyCart()}
-          >Cancelar</button>  
-          <button className='btn-confirm'
-          
-          >Confirmar</button>
+          >CANCELAR</button>  
+          <button className='btn-confirm'    
+          onClick={() => createOrder()} 
+          >CONFIRMAR</button>
         </div>
       </div>
   </section>
