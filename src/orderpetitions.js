@@ -33,7 +33,7 @@ const getDateActual = () => {
 
   
 
-const ordenPetition = async (token, items, values) =>{
+const ordenPetition = async (token, items, clients) =>{
   console.log('soy token', token)
   console.log('Soy getId', getId())
   
@@ -46,7 +46,7 @@ const ordenPetition = async (token, items, values) =>{
     },
     data: {    
           userId: getId(),
-          client: values,
+          client: clients,
           products: items,
           status: 'pendings',
           dataEntry: getDateActual(),
