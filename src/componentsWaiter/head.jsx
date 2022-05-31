@@ -7,8 +7,8 @@ export default function Head(props) {
     <div>
     <nav className='head'>
       <img className='logo' src={logo} alt="logo" />      
-        <Link to='/waiter/order' style={{color:"#f1f1f1"}} activeClassName='active' >{props.text1}</Link>
-        <Link to='/waiter/list' style={{color:"#f1f1f1"}} activeClassName='active' >{props.text2}</Link>       
+        <Link to='/waiter/order' style={{color:"#f1f1f1"}} >{props.text1}</Link>
+        <Link to='/waiter/list' style={{color:"#f1f1f1"}} >{props.text2}</Link>       
     </nav>
     <section>
       <Outlet />
