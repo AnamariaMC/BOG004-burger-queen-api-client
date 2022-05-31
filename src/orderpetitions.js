@@ -17,23 +17,42 @@ const products = (token) => {
     })     
 }
 
-const ordenPetition = (token, items) =>{
+const getDateActual = () => {
+  let dateActual= new Date();
+  console.log('SOY FECHA', dateActual)
+   return dateActual.getFullYear() +
+    '-' +
+    (dateActual.getMonth() + 1 )+
+    '-' +
+   dateActual.getDate() +
+    ' ' +
+    dateActual.getHours() +
+    ':' +
+    dateActual.getMinutes()
+} 
+
+  
+
+const ordenPetition = async (token, items, values) =>{
   console.log('soy token', token)
-  return axios({
+  console.log('Soy getId', getId())
+  
+  return await axios({
     method: "POST",
     url:url+'orders',
     headers: {
       'content-type': 'application/json',
           authorization: 'Bearer ' + token.accessToken,
     },
-    body: {
-      id: 5,
-      userId: getId(),
-      client: "Carol Shaw",
-      products: items, //cambiarlo por el formato requerido
-      status: "pending",
-      dateEntry: "2022-03-05 15:00" //cambiarlo por la fecha actual
-    }
+    data: {    
+          userId: getId(),
+          client: values,
+          products: items,
+          status: 'pendings',
+          dataEntry: getDateActual(),
+          },
+  
   })
 }
- export { products, ordenPetition }
+
+ export { products, ordenPetition}
