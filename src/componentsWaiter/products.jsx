@@ -1,5 +1,5 @@
 import '../css/product.css'
-import { products } from '../orderpetitions';
+import { products, } from '../orderpetitions';
 import { getToken } from '../petitions';
 import { useEffect, useState } from 'react';
 import  Menu  from './menu'
@@ -23,9 +23,8 @@ export default function ProductsMenu({handleAddProduct}) {
       {/* <h2 style={{color:'#bde0fe'}}>menu de ordenes</h2> */}
       {filteredProducts.map((producto, index) => {
         return (
-          <div className='productsMenu'>
-            <Menu 
-              key={index}
+          <div key={index.toString()} className='productsMenu'>
+             <Menu 
               id={producto.id}
               handleAddProduct={handleAddProduct}
               name={producto.name}

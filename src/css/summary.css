@@ -4,16 +4,17 @@
  .summary{
      /* gap: 10px; */
     background-color: #6b6a655c;
-    display: grid;
-    flex-wrap: wrap; 
-    justify-content: space-around;
+    /* display: inline-block; */
+    justify-content: center;
+    
+    
     }
 
 .orderSummary{
     /* display: flex; */
     display: inline-block;
-    /* gap: 10px; */
-    justify-content: space-around;
+    gap: 10px;
+    justify-content: space-between;
     padding: 50px;
         
 }
@@ -27,14 +28,20 @@
    
 }
 
-.itemcontent{
- /* display: flex;
- justify-content: space-around;
- align-items: center; */
- /* display: grid;
- grid-gap: 10px;
- grid-template-columns: 100px 1fr;
- padding: 10rem; */
+.contentSummary{
+   
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.itemContent{
+  /* display: flex;  */
+ justify-content: space-around; 
+ align-items: center;  
+ /* display: grid; */
+ /* grid-gap: 3px;
+ grid-template-columns: 80px 1fr; */
+ padding: 2.5rem;
 }
 
 
