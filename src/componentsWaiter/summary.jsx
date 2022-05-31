@@ -16,21 +16,21 @@ export default function Summary() {
     emptyCart,
   } = useCart();
 
-  const [values, setValues] = useState ('')
+  const [clients, setclients] = useState ('')
 
   const createOrder = () => {
     const token = getToken()
-    ordenPetition(token, items)
+    ordenPetition(token, items, clients)
       .then((response) => {
         console.log(response)
       }).catch(() => {
       })
    
-    // emptyCart()
+   emptyCart()
 }
 
 
-if (isEmpty) return <h1 className='text-center'>Resumen del pedido </h1>
+if (isEmpty) return <h1 className='text-center' style={{ color: "#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}>RESUMEN DEL PEDIDO</h1>
 return (
   <section className='summary'>
     <h2 style={{ color: "#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}> RESUMEN DEL PEDIDO</h2>
@@ -42,10 +42,12 @@ return (
         <input type='text'
           name='client'
           className='client'
-          value={values}
-          onChange={ event => setValues(event.target.value)}
+          value={clients}
+          onChange={ event => setclients(event.target.value)}
           required></input>
+          
          </div>
+
     <table className='summaryTable'>
       <tbody className='orderSummary'>
         {items.map((item, index) => {
