@@ -55,4 +55,13 @@ const ordenPetition = async (token, items, clients) =>{
   })
 }
 
- export { products, ordenPetition}
+const getOrder = (token) => {
+  //console.log('Soy getOrder', getOrder(token))
+  return axios.get(url+'orders', {
+      headers: {
+          authorization: 'Bearer ' + token,
+      }
+  });
+}
+
+ export { products, ordenPetition, getOrder}
