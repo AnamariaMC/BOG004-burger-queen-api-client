@@ -8,14 +8,13 @@ export default function Order() {
   
   return (    
     <> 
-      <CartProvider>
+      <CartProvider>      
       <div>
-        <h1 style={{color:"#f1f1f1", fontSize:'30px', fontWeight:'bold', textAlign:'center'}}>Menu</h1>
-      </div>
-      <div>
+        <h1 style={{color:"#f1f1f1", fontSize:'30px', fontWeight:'bold', textAlign:'center'}}>MENU</h1>
         <ProductsMenu  />
       </div>
       <div className='resumen' >
+      <h1 style={{color:"#f1f1f1", fontSize:'30px', fontWeight:'bold', textAlign:'center'}}>RESUMEN DEL PEDIDO</h1>
         <Summary />
       </div>
       </CartProvider> 

@@ -9,10 +9,10 @@
   background-color: #6b6a655c;
   display: flex;
   margin: 20px;
-  padding: 30px;
+  padding: 10px;
   display: flex;
   flex-wrap: wrap; 
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 
 .productsMenu :hover{
@@ -21,7 +21,7 @@
 
 
 .productsMenu {
-  margin-left: 20px;
+  /* margin-left: 20px; */
   flex:1 1 200px;
   color: #DFC020;
   
@@ -29,6 +29,7 @@
 
 .product-name-price{
   display: flex;
+  flex-direction: column;
   gap: 10px;
   padding: 10px;
 }

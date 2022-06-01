@@ -10,7 +10,7 @@ const Menu = (props) => {
     <div className='product' 
     onClick={() =>addItem(props.item)}>
       
-      <img src={props.image} alt={props.name} />
+      <img src={props.image} alt={props.name} className="imgProductos" />
       <div className="product-name-price"> 
         <p>{props.name}</p>
         <p className='product-price'>${props.price}</p>
