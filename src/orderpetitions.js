@@ -59,6 +59,7 @@ const getOrder = (token) => {
   //console.log('Soy getOrder', getOrder(token))
   return axios.get(url+'orders', {
       headers: {
+        'content-type': 'application/json',
           authorization: 'Bearer ' + token,
       }
   });
