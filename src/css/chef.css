@@ -18,20 +18,25 @@ hr {
   padding: 10px;
   font-family: 'Open Sans', sans-serif;
   color: rgb(0, 0, 0);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   
 }
 
 .containerOrders {
   background-color: #f0da5d66;
-  flex-direction: column;
+  position: relative;
+  width: 20vw;
   margin: 20px;
-  padding: 10px;
+  padding: 10px 10px 30px 10px ;
   display: flex;
   flex-wrap: wrap; 
   /* justify-content: space-around; */
 }
 
 .btnListo {
+  position: absolute;
+  top: 85%;
   display: block;
 	background: #F0D95D;
 	font-weight: 600;
