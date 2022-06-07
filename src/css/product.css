@@ -1,0 +1,40 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  margin-bottom: 5px;
+   
+}
+.ollProducts {
+  background-color: #6b6a655c;
+  display: flex;
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap; 
+  /* justify-content: space-around; */
+}
+
+.productsMenu :hover{
+  background-color: rgba(243, 228, 16, 0.705);
+}
+
+
+.productsMenu {
+  /* margin-left: 20px; */
+  flex:1 1 200px;
+  color: #DFC020;
+  
+}
+
+.product-name-price{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.product-price {
+  font-weight: bold;
+  color: whitesmoke;
+}

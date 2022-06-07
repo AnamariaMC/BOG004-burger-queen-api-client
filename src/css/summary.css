@@ -1,0 +1,91 @@
+ 
+ .summary{
+    margin: 20px;
+    padding: 10px;
+     /* gap: 10px; */
+    background-color: #6b6a655c;
+    /* display: inline-block; */
+    /* justify-content: center; */   
+  
+}
+
+.summaryTable{
+    color: aliceblue; 
+    display: flex; 
+    justify-content: space-evenly;    
+}
+
+.remove {
+    background-color: #DFC020;
+    width: 2rem;
+    height: 2rem;
+}
+.add{
+    background-color: #DFC020;
+    width: 2rem;
+    height: 2rem;
+}
+.delete{
+    background-color: #DFC020;
+    width: 2rem;
+    height: 2rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.btn-cancel{
+    border-radius: 8px;
+    background-color: #DFC020;
+    height: 2rem;
+    width: 6rem;
+    
+   
+}
+
+.btn-confirm{
+    background-color: #DFC020;
+    border-radius: 8px;
+    height: 2rem;
+    width: 6rem;
+}
+
+.total-summary {
+    padding: 5px;
+    margin: 10px;
+    background-color: #f0da5d60;
+    font-size: 1,5rem;
+    
+}
+
+
+
+
+
+
+
+.container-client{
+    padding: 5px;
+    margin: 10px;
+    background-color: #f0da5d60;
+    font-size: 20px;
+    font-weight: bold
+    
+}
+.client{
+    background-color: #f0da5d60;
+    border: none;
+    margin-left: 20px;
+    width: 20rem;
+    height: 20px;
+}
+.title-table{
+    font-size: 20px;
+    font-weight: bold    
+    
+}
+

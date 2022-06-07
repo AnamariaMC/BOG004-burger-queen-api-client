@@ -1,0 +1,22 @@
+.head {
+  padding: 5px;
+  margin: 10px;
+  display:flex ;
+  justify-content: space-around;
+  align-items: center;
+  font-size:x-large;  
+}
+.logo {
+  width: 80px;
+  height: 80px;
+	margin-top: 2px;
+}
+
+
+/* .resumen {
+  background-color: #6b6a655c;
+  margin: 20px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+} */
