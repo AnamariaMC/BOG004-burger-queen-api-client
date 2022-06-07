@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 import { useCart } from 'react-use-cart'
 import { getToken } from '../petitions';
 import { ordenPetition } from '../orderpetitions';
-// import { useState } from 'react'
-// import {useState} from 'react';
+
 export default function Summary() {
   const { isEmpty,
     totalUniqueItems,
@@ -18,30 +17,68 @@ export default function Summary() {
 
   const [clients, setclients] = useState ('')
 
-  const createOrder = () => {
-    const token = getToken()
-    ordenPetition(token, items, clients)
-      .then((response) => {
-        console.log(response)
-      }).catch(() => {
+  const creatObject =()=>{
+    let total = localStorage.getItem('react-use-cart');
+    let arrayItems = [];
+    if (total !== null) {
+      total = JSON.parse(total);
+      
+      total.items.forEach((item)=>{
+        arrayItems.push(
+          {
+            "qty": item.quantity,
+            "product": {
+              "id": item.id,
+              "name": item.name,
+              "price": item.price,
+              "image": item.image,
+              "type": item.type,
+              "dateEntry": item.dateEntry,
+            }
+          }
+        )
       })
-   
-   emptyCart()
-}
+    }
+    return arrayItems;
+  }
+
+  //--- Funcion para resolver peticion y crear orden
+  const createOrder =() =>{
+    const token = getToken();  
+    const newObject = creatObject();
+    
+    ordenPetition(token, newObject, clients)
+      .then((response)=> {
+        return response;
+      })
+      .catch((error) => {
+        return error;
+      });
+    emptyCart();
+    
+    const input = document.getElementById('orderClient');
+    const e = {
+      target: input
+      }
+    e.target.value = '';
+    setclients(e.target.value)
+  };
 
 if (isEmpty) return <h1 className='text-center' style={{ color: "#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}>RESUMEN DEL PEDIDO</h1>
 return (
   <section className='summary'>
-    {/* <h2 style={{ color: "#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}> RESUMEN DEL PEDIDO</h2>     */}
-    <div className='container-client'>
-      {/* <h3 style={{ color: "#f1f1f1", fontWeight: 'bold', textAlign: 'center', justifyContent: 'space-between',  }}>Productos ({totalUniqueItems}) Total Productos: ({totalItems})</h3> */}      
+    <h3 style={{ color: "#f1f1f1", fontWeight: 'bold', textAlign: 'center', justifyContent: 'space-between',  }}>Productos ({totalUniqueItems}) Total Productos: ({totalItems})</h3>    
+    <div className='container-client'>            
         <label>Nombre del Cliente</label>
-        <input type='text'
-          name='client'
-          className='client'
-          value={clients}
-          onChange={ event => setclients(event.target.value)}
-          required></input>
+        <input
+                id = 'orderClient'
+                type='text'
+                name='client'
+                className='client'              
+                value={clients}
+                onChange={event => setclients(event.target.value)}           
+              >          
+          </input>
           
     </div>
     {/* <div className='title-table'>PRODUCTO  PRECIO  CANTIDAD</div> */}
