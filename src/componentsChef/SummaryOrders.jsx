@@ -21,7 +21,7 @@ export default function SummaryOrders() {
   
   useEffect(() => { // useEffect es una función que se ejecuta cuando el componente se monta
     newOrder()
-  }, [token.accessToken, setOrder, order]);
+  }, [token.accessToken, order]);
   
 
   return (

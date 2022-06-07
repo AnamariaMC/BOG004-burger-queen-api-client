@@ -7,7 +7,7 @@ export default function Items({products}) {
       {products.map((prod, index)=>{
           return(
               <div  key={index}>
-                <p >🍴{prod.product.name}</p>
+                <p >🍴{prod.product.name} {prod.qty}</p>
               </div>
           )
       })}

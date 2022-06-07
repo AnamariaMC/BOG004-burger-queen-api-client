@@ -12,7 +12,9 @@ export default function StructureOrder({totalOrders}) {
           </div>
           <h5>Pedido:</h5>
             <Items style={{color:'#FE8D06', fontWeight:'700'}}
-                products = {totalOrders.products}
+                products = {totalOrders.products}                
+                qty = {totalOrders.quantity}
+
             />
             <button className='btnListo' type='submit'>Listo</button>
             
