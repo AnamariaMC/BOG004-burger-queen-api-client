@@ -1,21 +1,16 @@
-import React from "react";
-
-export default function Items(products) {
-    console.log('Deberia ser ARRAY', products)
-     return (
-         <div>
-             {/* {products.map((product, index) =>{
-                 return (
-                    <div key ={index}>
-                        <p>
-                            
-                        </p>
+import React from 'react'
 
 
-                     </div>
-                 )
-             })} */}
-         </div>
-     )
-       
-    }
+export default function Items({products}) {    
+  return (
+    <div>
+      {products.map((prod, index)=>{
+          return(
+              <div  key={index}>
+                <p >🍴{prod.product.name}</p>
+              </div>
+          )
+      })}
+    </div>
+  )
+}
