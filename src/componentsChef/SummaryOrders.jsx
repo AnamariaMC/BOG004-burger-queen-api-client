@@ -20,8 +20,11 @@ export default function SummaryOrders() {
   }
   
   useEffect(() => { // useEffect es una función que se ejecuta cuando el componente se monta
-    newOrder()
-  }, [token.accessToken, order]);
+    const interval = setInterval(()=>{
+      newOrder()
+    },8000)
+    return () => clearInterval(interval)
+  }, []);
   
 
   return (
