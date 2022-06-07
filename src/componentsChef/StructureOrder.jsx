@@ -1,8 +1,22 @@
 import React from 'react'
 import Items from './Items'
 import '../css/chef.css'
+import { StatusOrder } from '../orderpetitions'
+import { getId, getToken } from '../petitions'
+
 
 export default function StructureOrder({totalOrders}) {
+    const productId = getId();
+    const productToken = getToken();
+    const newStatus = () => {
+        StatusOrder(productId, productToken)
+        .then((response) => {
+            console.log('resuesta de newStatus', response)
+        })
+        .catch((error) => {
+            console.log('Soy Error', error)
+        })
+    }
     return (
         <div>
         <div className='containerOrders'>
@@ -16,8 +30,8 @@ export default function StructureOrder({totalOrders}) {
                 qty = {totalOrders.quantity}
 
             />
-            <button className='btnListo' type='submit'>Listo</button>
-            
+            <button className='btnListo' type='submit' onClick={newStatus}>Listo</button>
+            <status style={{color:'#FE8D06', fontWeight:'700'}} />
         </div>
       </div> 
         
