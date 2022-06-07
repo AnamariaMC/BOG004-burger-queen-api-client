@@ -4,11 +4,14 @@ import { useNavigate } from 'react-router';
 import {login, saveIdUser} from '../petitions'
 import hamburger from '../lib/hamburger.png'
 import '../css/login.css'
+import { useState } from 'react';
 
 const LoginForm = () => {
 
   const navigate = useNavigate(); 
- 
+
+  const [userError, setUserError] = useState('');
+   
 	return (      
 		<div className='contenedor'>
       <img className='hamburger' src={hamburger} alt="hamburger" />
@@ -45,12 +48,14 @@ const LoginForm = () => {
            //Cambio de vistas con captura del id
             navigate(`/${Object.keys(userRole)}`)
           })
-          .catch(function (error) {
-            console.log('se fue al erro?: ',error);
-          //   // aca el mensaje de correo y/o contraseña incorrectos
-           })          
-          console.log(valores.email, valores.password);
-          console.log('LoginForm enviado');  
+          .catch((error) => {
+            if(error.message === 'Request failed with status code 400'){
+              setUserError('Usuario y/o contraseña incorrectas');
+            }else{
+              setUserError(error.message);
+            }          
+          })
+
           resetForm()                               
         }}
       >
@@ -78,6 +83,7 @@ const LoginForm = () => {
               />
               {touched.password && errors.password && <div className='error'>{errors.password}</div>}
             </div>
+            {userError && <span data-testid='login-err-message' style={{color:'#F1F1F1'}}>{userError}</span>}
             <button type="submit">Ingresar</button>
           </Form>
         )}
