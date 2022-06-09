@@ -5,7 +5,7 @@ import Waiter from '../pages/waiter.jsx';
 import Admin  from '../pages/admin.jsx';
 import Order from '../componentsWaiter/order.jsx';
 import List from '../componentsWaiter/list.jsx';
-
+import Delivered from '../componentsWaiter/delivered.jsx';
 
 
 export const RoutesId = () => {
@@ -18,6 +18,7 @@ export const RoutesId = () => {
               <Route index element={<Order/>}></Route>
               <Route path='/waiter/list' element={<List/>}></Route>
               <Route path='/waiter/order' element={<Order/>}></Route>
+              <Route path='/waiter/delivered' element={<Delivered/>}></Route>
             </Route>
           ) : null
         }

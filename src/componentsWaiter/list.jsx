@@ -4,19 +4,21 @@ import { getOrder } from '../orderpetitions';
 import { getToken } from '../petitions';
 import {  useState, useEffect } from 'react';
 
-export default function List() {
+export default function List({totalOrders}) {
   const [order, setOrder] = useState([]);
   const token = getToken()
 
-  const orderReady= () => {
-    getOrder(token.accessToken) // llamamos a la función products() que está en el provider
+  const orderReady= () => {    
+      getOrder(token.accessToken) // llamamos a la función products() que está en el provider
       .then((response) => { // cuando la función products() se ejecuta, se ejecuta la función then()
         const orderDelivering = response.data.filter((orden)=> orden.status === 'delivering');       
         setOrder(orderDelivering); // guardamos los datos en el estado
       })
       .catch((error) => {
         console.log(error);
-      });
+      })
+         
+    ;
   }
   
   useEffect(()=>{
@@ -39,7 +41,10 @@ export default function List() {
     return(
       <div key ={index}>
         <ComponentEstate totalOrders = {orders} />
-        <button>ENTREGADO</button>
+        <button className='btnEntregado'
+        //  onClick={() =>newStatus(totalOrders.id)}
+        >ENTREGADO</button>
+        
      </div>
        )
   })}
