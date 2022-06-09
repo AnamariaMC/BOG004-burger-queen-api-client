@@ -21,7 +21,7 @@ export default function StructureOrder({totalOrders}) {
         <div className='containerOrders'>
           <div className='nameDate'>
             <p style={{color:'#FE8D06', fontWeight:'700'}}>{totalOrders.client}</p>
-            <p style={{color:'#FE8D06', fontWeight:'700'}}>{totalOrders.dataEntry}</p>
+            <p style={{color:'#FE8D06', fontWeight:'700'}}>{totalOrders.dateEntry}</p>
           </div>
           <h5>Pedido:</h5>
             <Items style={{color:'#FE8D06', fontWeight:'700'}}

@@ -38,8 +38,13 @@ export default function SummaryReady() {
         </div>
         <div className='containerSummayOrders'>
       {order.map((orders, index) => {
+  const totalTime = Math.round(
+    Math.abs(new Date(orders.dateProcessed) - new Date(orders.dateEntry)) /
+      (1000 * 60)
+  );
         return(
           <div key ={index}>
+            <p>{ totalTime } Minutos</p>
             <ComponentEstate
             totalOrders = {orders}
          />
