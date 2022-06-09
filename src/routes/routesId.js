@@ -17,6 +17,7 @@ export const RoutesId = () => {
             <Route path='waiter' element={<Waiter/>}>
               <Route index element={<Order/>}></Route>
               <Route path='/waiter/list' element={<List/>}></Route>
+              <Route path='/waiter/order' element={<Order/>}></Route>
             </Route>
           ) : null
         }
