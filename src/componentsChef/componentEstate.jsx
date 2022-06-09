@@ -19,11 +19,7 @@ export default function ComponentEstate({totalOrders}) {
               products = {totalOrders.products}                
               qty = {totalOrders.quantity}
 
-          />
-          {/* <button className='btnListo' type='submit' id='btnListo'
-          onClick={() =>newStatus(totalOrders.id)}
-          >Listo</button>
-          <status style={{color:'#FE8D06', fontWeight:'700'}} /> */}
+          />          
       </div>
     </div> 
       
