@@ -31,8 +31,6 @@ export default function SummaryReady() {
   }, []);
   
 
-
-
     return (
       <>
         <div>
