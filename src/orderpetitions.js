@@ -49,7 +49,7 @@ const ordenPetition = async (token, items, clients) =>{
           userId: getId(),
           client: clients,
           products: items,
-          status: 'pendings',
+          status: 'pending',
           dataEntry: getDateActual(),
           },
   
@@ -68,13 +68,20 @@ const getOrder = (token) => {
 }
 
 
-const StatusOrder = (id, update, token) => {
-  return axios.patch(url+'orders/'+ id, update, {
-         headers: {
-             "content-type": "application/json",
-             authorization: 'Bearer ' + token
-         }
-     });
- }
+const StatusOrder = async(orderId, token) => {
+    
+  return await axios({
+      method: "PATCH",
+      url:url+'orders/'+ orderId,
+      headers: {
+          'content-type': 'application/json',
+          authorization: 'Bearer ' + token,
+      },
+      data: {
+          status: 'delivering',
+      }
+  })
+}
+
 
  export { products, ordenPetition, getOrder, StatusOrder}
