@@ -12,17 +12,21 @@ export default function SummaryOrders() {
   const newOrder = () => {
     getOrder(token.accessToken) // llamamos a la función products() que está en el provider
       .then((response) => { // cuando la función products() se ejecuta, se ejecuta la función then()
-        setOrder(response.data); // guardamos los datos en el estado
+        const orderPending = response.data.filter((orden)=> orden.status === 'pending');       
+        setOrder(orderPending); // guardamos los datos en el estado
       })
       .catch((error) => {
         console.log(error);
       });
   }
+  useEffect(()=>{
+    newOrder()
+  },[]);
   
   useEffect(() => { // useEffect es una función que se ejecuta cuando el componente se monta
     const interval = setInterval(()=>{
       newOrder()
-    },8000)
+    },3000)
     return () => clearInterval(interval)
   }, []);
   
