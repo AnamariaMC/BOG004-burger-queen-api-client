@@ -1,18 +1,18 @@
 import React from 'react'
 import ComponentEstate from '../componentsChef/componentEstate';
-import { getOrder } from '../orderpetitions';
+import { getOrder,statusDelivered } from '../orderpetitions';
 import { getToken } from '../petitions';
 import {  useState, useEffect } from 'react';
 
-export default function List({totalOrders}) {
+export default function List() {
   const [order, setOrder] = useState([]);
   const token = getToken()
 
-  const orderReady= () => {    
+  const orderDelivering= () => {    
       getOrder(token.accessToken) // llamamos a la función products() que está en el provider
       .then((response) => { // cuando la función products() se ejecuta, se ejecuta la función then()
-        const orderDelivering = response.data.filter((orden)=> orden.status === 'delivering');       
-        setOrder(orderDelivering); // guardamos los datos en el estado
+        const orderPending = response.data.filter((orden)=> orden.status === 'delivering');       
+        setOrder(orderPending); // guardamos los datos en el estado
       })
       .catch((error) => {
         console.log(error);
@@ -22,15 +22,16 @@ export default function List({totalOrders}) {
   }
   
   useEffect(()=>{
-    orderReady()
+    orderDelivering()
   },[]);
   
   useEffect(() => { // useEffect es una función que se ejecuta cuando el componente se monta
     const interval = setInterval(()=>{
-      orderReady()
+      orderDelivering()
     },3000)
     return () => clearInterval(interval)
   }, []);
+
   return (
     <>
     <div>
@@ -42,9 +43,8 @@ export default function List({totalOrders}) {
       <div key ={index}>
         <ComponentEstate totalOrders = {orders} />
         <button className='btnEntregado'
-        //  onClick={() =>newStatus(totalOrders.id)}
-        >ENTREGADO</button>
-        
+           onClick={() =>statusDelivered(orders.id, token.accessToken)}>ENTREGADO
+        </button>        
      </div>
        )
   })}
