@@ -15,7 +15,7 @@ export default function Summary() {
     emptyCart,
   } = useCart();
 
-  const [clients, setclients] = useState ('')
+  const [clients, setclients,] = useState ('')
 
   const creatObject =()=>{
     let total = localStorage.getItem('react-use-cart');
