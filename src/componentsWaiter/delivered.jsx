@@ -2,17 +2,17 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { getToken } from '../petitions';
 import { getOrder } from '../orderpetitions';
-import ComponentEstate from '../componentsChef/componentEstate';
+//import ComponentEstate from '../componentsChef/componentEstate';
 
 export default function Delivered() {
-  const [order, setOrder] = useState([]);
+  const [orderDelivered, setOrderDeliveres] = useState([]);
   const token = getToken()
 
   const orderReady= () => {
     getOrder(token.accessToken) // llamamos a la función products() que está en el provider
       .then((response) => { // cuando la función products() se ejecuta, se ejecuta la función then()
         const orderDelivered = response.data.filter((orden)=> orden.status === 'delivered');       
-        setOrder(orderDelivered); // guardamos los datos en el estado
+        setOrderDeliveres(orderDelivered); // guardamos los datos en el estado
       })
       .catch((error) => {
         console.log(error);
@@ -32,18 +32,33 @@ export default function Delivered() {
   
   return (
     <>
-    <div>
+    <div className='title'>
       <h2 style={{color:"#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}> PEDIDOS ENTREGADOS </h2>
     </div>
-    <div className='containerSummayOrders'>
-  {order.map((orders, index) => {
-    return(
-      <div key ={index}>
-        <ComponentEstate totalOrders = {orders} />           
-     </div>
-       )
-  })}
-</div>
+    <table className='table'>
+            <thead>
+              <tr style={{color:"#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}>
+                <th>Cliente</th>
+                <th>Hora Inicial</th>
+                <th>Hora Entrega</th>
+                
+              </tr>
+            </thead>
+            <tbody>            
+            {
+              orderDelivered.map((order)=>{
+                console.log('que es',order)
+                return(
+                  <tr style={{color:"#f1f1f1", fontSize: '15px', fontWeight: 'bold', textAlign: 'center' }}>
+                    <th>{order.client}</th>
+                    <th>{order.dateEntry}</th>
+                    <th>{order.dateProcessed}</th>                    
+                  </tr>
+                )
+              })
+            }
+            </tbody>
+        </table>   
   </>
   )
 }
