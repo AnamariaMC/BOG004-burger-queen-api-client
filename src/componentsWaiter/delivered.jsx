@@ -11,8 +11,8 @@ export default function Delivered() {
   const orderReady= () => {
     getOrder(token.accessToken) // llamamos a la función products() que está en el provider
       .then((response) => { // cuando la función products() se ejecuta, se ejecuta la función then()
-        const orderDelivering = response.data.filter((orden)=> orden.status === 'delivered');       
-        setOrder(orderDelivering); // guardamos los datos en el estado
+        const orderDelivered = response.data.filter((orden)=> orden.status === 'delivered');       
+        setOrder(orderDelivered); // guardamos los datos en el estado
       })
       .catch((error) => {
         console.log(error);
@@ -29,17 +29,17 @@ export default function Delivered() {
     },3000)
     return () => clearInterval(interval)
   }, []);
+  
   return (
     <>
     <div>
-      <h2 style={{color:"#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}> PEDIDOS PENDIENTES POR ENTREGAR </h2>
+      <h2 style={{color:"#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}> PEDIDOS ENTREGADOS </h2>
     </div>
     <div className='containerSummayOrders'>
   {order.map((orders, index) => {
     return(
       <div key ={index}>
-        <ComponentEstate totalOrders = {orders} />   
-        
+        <ComponentEstate totalOrders = {orders} />           
      </div>
        )
   })}
