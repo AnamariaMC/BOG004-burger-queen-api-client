@@ -16,20 +16,28 @@ export default function AddUserForm(props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Nombre</label>
-      <input type="text" name="name" {...register("name", {
+      <label>correo</label>
+      <input type="text" name="email" {...register("email", {
                 required: {value: true, message: 'Campo Requerido'}
             })}
        />
       <div>
-        {errors?.name?.message}
+        {errors?.email?.message}
+      </div>
+      <label>contraseña</label>
+      <input type="text" name="passeword" {...register("passeword", {
+                required: {value: true, message: 'Campo Requerido'}
+            })}
+       />
+      <div>
+        {errors?.passeword?.message}
       </div>
       <label>Rol</label>
-      <input type="text" name="username" {...register("username", {
+      <input type="text" name="rol" {...register("rol", {
             required: {value: true, message: 'Campo Requerido'}
         })} />
       <div>
-        {errors?.usarname?.message}
+        {errors?.rol?.message}
       </div>
       <button>Agregar</button>
     </form>
