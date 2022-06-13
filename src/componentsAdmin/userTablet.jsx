@@ -6,7 +6,7 @@ export default function UserTablet(props) {
     <table>
       <thead>
         <tr>
-          <th>Nombre</th>
+          <th>Nombre</th>          
           <th>Rol</th>          
           <th>Acciones</th>
         </tr>
@@ -14,17 +14,16 @@ export default function UserTablet(props) {
       <tbody>
         {
           props.users.length > 0 ?
-          props.users.map(user => (
-            <tr key={user.id} >
-              <td>{user.name}</td>
-              <td>{user.username}</td>
+          props.users.map((user, index) => (
+            <tr key={index} >
+              <td>{user.email}</td>              
+              <td>{`${Object.keys(user.rol)}`}</td>
               <td>
                 <button 
                 className="button muted-button"
                 onClick={
                   ()=> {props.editRow(user)}
-                }
-                
+                }                
                 >
                   Editar
                 </button>
