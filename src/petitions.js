@@ -14,9 +14,37 @@ const getUser = (user) => {
   return axios.post(url+'users', user);
 }
 //PETICIÓN PARA OBTENER INFO DE USUARIO
-const infoUser = (user) => {
-  return axios.get(url+'users', user);
+const infoUser = async() => {
+  console.log('que es getToken', getToken().accessToken)
+  return await axios({
+    method: "GET", 
+    url:url+'users', 
+    headers: {
+      'content-type': 'application/json',
+          authorization: 'Bearer ' + getToken().accessToken,
+    },         
+  })     
 }
+//PETICIÓN CREAR USUARIOS
+const createUser = async() => {
+  console.log('que es createUser', getToken().accessToken)
+  return await axios({
+    method: "POST", 
+    url:url+'users', 
+    headers: {
+      'content-type': 'application/json',
+          authorization: 'Bearer ' + getToken().accessToken,
+    },
+    data: {         
+      id: getId(),
+      email: "grace.hopper@systers.xyz",
+      roles: {
+        admin: true
+      }
+    },         
+  })     
+}
+
 
 const getUserData = () => {
   return JSON.parse(sessionStorage.getItem('user'));
@@ -39,4 +67,5 @@ export {
   getToken,
   getId,
   infoUser,
+  createUser,
 }
