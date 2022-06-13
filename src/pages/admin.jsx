@@ -1,24 +1,47 @@
 import React from 'react'
-
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../css/admin.css'
 import UserTablet from '../componentsAdmin/userTablet'
 import AddUserForm from '../componentsAdmin/addUserForm'
 import EditUserForm from '../componentsAdmin/editUserForm'
-import { v4 as uuidv4 } from 'uuid';
+import { infoUser } from '../petitions'
+import { createUser } from '../petitions'
 
-export default function Admin() {
-  const usersData = [
-    { id: uuidv4(), name: 'Andrea', username: 'Mesera' },
-    { id: uuidv4(), name: 'Carolina', username: 'Mesera' },
-    { id: uuidv4(), name: 'Marcela', username: 'Chef' },
-  ]
 
-  const [users, setUsers] = useState(usersData)
-
-  //agregar usuarios, (se debe hacer la peción post)
+export default function Admin() {  
+  const [users, setUsers] = useState([])
+  const getInfoUsers = () =>{
+      infoUser()
+      .then((response)=>{
+          setUsers(response.data.map((user)=>{
+            return {
+              email: user.email,
+              password: user.password,
+              rol: user.roles,
+            }
+          }))             
+        })
+        .catch((error)=>{
+            console.log('soy el error ', error)
+          })   
+        }
+        
+        useEffect(()=> {       
+         getInfoUsers()               
+          }, [])       
+                          
+          
+          //agregar usuarios, (se debe hacer la peción post)
   const addUser = (user) => {
-    user.id = uuidv4()
+    createUser()
+    .then((response)=>{
+      console.log('que responde addUser',response)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+    
+    // user.id = uuidv4()
     setUsers([
       ...users,
       user
