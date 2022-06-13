@@ -9,9 +9,15 @@ const login = (data) => {
 const saveIdUser = (user) => {
   sessionStorage.setItem('user', JSON.stringify(user));
 };
+//PETICIÓN PARA CREAR USUARIO
 const getUser = (user) => {
   return axios.post(url+'users', user);
 }
+//PETICIÓN PARA OBTENER INFO DE USUARIO
+const infoUser = (user) => {
+  return axios.get(url+'users', user);
+}
+
 const getUserData = () => {
   return JSON.parse(sessionStorage.getItem('user'));
 }
@@ -32,4 +38,5 @@ export {
   getUserData,
   getToken,
   getId,
+  infoUser,
 }
