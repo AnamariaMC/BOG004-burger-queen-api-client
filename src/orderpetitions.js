@@ -17,21 +17,6 @@ const products = (token) => {
     })     
 }
 
-// Peticion para obtener la fecha actual
-// const getDateActual = () => {
-//   let dateActual= new Date();
-//   console.log('SOY FECHA', dateActual)
-//    return dateActual.getFullYear() +
-//     '-' +
-//     (dateActual.getMonth() + 1 )+
-//     '-' +
-//    dateActual.getDate() +
-//     ' ' +
-//     dateActual.getHours() +
-//     ':' +
-//     dateActual.getMinutes()
-// } 
-
   
 // Peticion para crear estructura de la orden
 const ordenPetition = async (token, items, clients) =>{
