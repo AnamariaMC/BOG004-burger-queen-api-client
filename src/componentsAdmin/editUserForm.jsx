@@ -23,24 +23,24 @@ export default function EditUserForm(props) {
     e.target.reset();
   }
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Nombre</label>
-      <input type="text" name="name" {...register("name", {
+  return  (
+    <form className='container-agregar' onSubmit={handleSubmit(onSubmit)}>
+      <label style={{color:"#F1F1F1", fontSize: '20px'}}>Nombre</label>
+      <input style={{color:"", fontSize: '20px', background:'#DFC020'}} type="text" name="name" {...register("name", {
                 required: {value: true, message: 'Campo Requerido'}
             })}
        />
-      <div>
+      <div className='msg-err'>
         {errors?.name?.message}
       </div>
-      <label>Rol</label>
-      <input type="text" name="username" {...register("username", {
+      <label style={{color:"#F1F1F1", fontSize: '20px'}}>Rol</label>
+      <input style={{color:"", fontSize: '20px', background:'#DFC020'}} type="text" name="username" {...register("username", {
             required: {value: true, message: 'Campo Requerido'}
         })} />
-      <div>
-        {errors?.usarname?.message}
+      <div className='msg-err'>
+        {errors?.username?.message}
       </div>
-      <button>Editar</button>
+      <button className='btn-Agregar'>Agregar Empleado</button>
     </form>
   )
 }

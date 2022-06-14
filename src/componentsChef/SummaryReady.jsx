@@ -44,7 +44,7 @@ export default function SummaryReady() {
   );
         return(
           <div key ={index}>
-            <p>{ totalTime } Minutos</p>
+            <p style={{color: "#F1F1F1", fontSize: '16px' }}> :temporizador: { totalTime } Minutos</p>
             <ComponentEstate
             totalOrders = {orders}
          />

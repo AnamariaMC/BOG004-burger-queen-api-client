@@ -20,18 +20,7 @@ export default function AddUserForm(props) {
       <input type="text" name="email" {...register("email", {
                 required: {value: true, message: 'Campo Requerido'}
             })}
-       />
-      <div>
-        {errors?.email?.message}
-      </div>
-      <label>contraseña</label>
-      <input type="text" name="passewordca" {...register("passewordca", {
-                required: {value: true, message: 'Campo Requerido'}
-            })}
-       />
-      <div>
-        {errors?.passewordca?.message}
-      </div>
+       />      
       <label>Rol</label>
       <input type="text" name="rol" {...register("rol", {
             required: {value: true, message: 'Campo Requerido'}

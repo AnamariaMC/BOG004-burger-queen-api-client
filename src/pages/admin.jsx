@@ -6,9 +6,19 @@ import AddUserForm from '../componentsAdmin/addUserForm'
 import EditUserForm from '../componentsAdmin/editUserForm'
 import { infoUser } from '../petitions'
 import { createUser } from '../petitions'
+import { useNavigate } from 'react-router'
+import { BiLogOut } from 'react-icons/bi'
+import logo from '../lib/logo.png'
+import { Link } from 'react-router-dom'
 
 
 export default function Admin() {  
+  const navigate = useNavigate();
+  const logOut=()=>{
+    sessionStorage.clear();
+    navigate('/')
+  }
+
   const [users, setUsers] = useState([])
   const getInfoUsers = () =>{
       infoUser()
@@ -74,24 +84,30 @@ export default function Admin() {
   }
 
 
-  return (    
-    <div className="container" >      
-      <h1>VISTA DEL ADMINISTRADOR</h1>
+  return  (
+    <>
+     <nav className='logo-exit'>
+      <img className='logo' src={logo} alt="logo"/>
+       <Link to='/admin/user' style={{color:"#F1F1F1"}} > EMPLEADOS</Link>
+       <Link to='/admin/product' style={{color:"#F1F1F1"}} > PRODUCTOS</Link>
+       <BiLogOut style={{color:'#F1F1F1'} } className='iconLogout' onClick={logOut}/>
+      </nav>
+    <div className="container" >
+      <h1 style={{color:"#F1F1F1", fontSize: 'px', fontWeight: 'bold', textAlign: 'center' }}>VISTA DEL ADMINISTRADOR</h1>
       <div className="flex-row">
         <div className="flex-large">
-          <h2>Administrar Empleados</h2>
-          <UserTablet 
-              users={users} 
-              deleteUser={deleteUser}               
+          <h2 style={{color:"#F1F1F1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}>Administrar Empleados</h2>
+          <UserTablet
+              users={users}
+              deleteUser={deleteUser}
               editRow={editRow}
           />
         </div>
         <div className="flex-large">
-
           {
             editing ? (
               <div>
-                <h2>Editar Empleados</h2>
+                <h2 >Editar Empleados</h2>
                 <EditUserForm
                   currentUser={currentUser}
                   updateUser={updateUser}
@@ -99,7 +115,7 @@ export default function Admin() {
               </div>
             ) : (
               <div>
-              <h2>Agregar Empleados</h2>
+              <h2 style={{color:"#F1F1F1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}>Agregar Empleados</h2>
               <AddUserForm addUser={addUser}/>
               </div>
             )
@@ -107,5 +123,6 @@ export default function Admin() {
         </div>
       </div>
     </div>
+    </>
   )
 }

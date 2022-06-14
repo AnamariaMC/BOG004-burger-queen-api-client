@@ -3,7 +3,7 @@ import React from 'react'
 export default function UserTablet(props) {
   console.log(props.users)
   return (
-    <table>
+    <table className='table-admin'>
       <thead>
         <tr>
           <th>Nombre</th>          
@@ -19,16 +19,14 @@ export default function UserTablet(props) {
               <td>{user.email}</td>              
               <td>{`${Object.keys(user.rol)}`}</td>
               <td>
-                <button 
-                className="button muted-button"
+                <button                 
                 onClick={
                   ()=> {props.editRow(user)}
                 }                
                 >
                   Editar
                 </button>
-                <button 
-                  className="button muted-button"
+                <button                   
                   onClick={() => {props.deleteUser(user.id)}}
                 >
                   Eliminar</button>
