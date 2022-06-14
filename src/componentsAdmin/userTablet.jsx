@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function UserTablet(props) {
   console.log(props.users)
+  console.log('soy ID', props.users.id)
+
   return (
     <table className='table-admin'>
       <thead>
@@ -17,7 +19,7 @@ export default function UserTablet(props) {
           props.users.map((user, index) => (
             <tr key={index} >
               <td>{user.email}</td>              
-              <td>{`${Object.keys(user.rol)}`}</td>
+              <td>{`${Object.keys(user.rol)}`}</td> 
               <td>
                 <button                 
                 onClick={
