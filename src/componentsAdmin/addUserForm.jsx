@@ -2,13 +2,13 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 
-export default function AddUserForm(props) {
+export default function AddUserForm({addUser}) {
 
   const {register, handleSubmit, formState: { errors }} = useForm();
 
   const onSubmit = (data, e) => {
     //console.log(data)
-    props.addUser(data)
+    addUser(data)
     
     //limpia los campos
     e.target.reset();
@@ -21,6 +21,11 @@ export default function AddUserForm(props) {
                 required: {value: true, message: 'Campo Requerido'}
             })}
        />      
+       <label>Contraseña</label>
+      <input type="text" name="passsword" {...register("password", {
+                required: {value: true, message: 'Campo Requerido'}
+            })}
+       />   
       <label>Rol</label>
       <input type="text" name="rol" {...register("rol", {
             required: {value: true, message: 'Campo Requerido'}
@@ -28,7 +33,7 @@ export default function AddUserForm(props) {
       <div>
         {errors?.rol?.message}
       </div>
-      <button>Agregar</button>
+      <button>Agregar Empleado</button>
     </form>
   )
 }

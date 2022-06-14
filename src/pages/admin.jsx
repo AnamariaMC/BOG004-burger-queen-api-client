@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router'
 import { BiLogOut } from 'react-icons/bi'
 import logo from '../lib/logo.png'
 import { Link } from 'react-router-dom'
+import userEvent from '@testing-library/user-event'
 
 
 export default function Admin() {  
@@ -25,10 +26,11 @@ export default function Admin() {
       .then((response)=>{
           setUsers(response.data.map((user)=>{
             return {
+              id: user.id,
               email: user.email,
               password: user.password,
               rol: user.roles,
-            }
+             }
           }))             
         })
         .catch((error)=>{
@@ -41,17 +43,15 @@ export default function Admin() {
           }, [])       
                           
           
-          //agregar usuarios, (se debe hacer la peción post)
+          //agregar usuarios, (se debe hacer la petición post)
   const addUser = (user) => {
-    createUser()
+     createUser(user)
     .then((response)=>{
       console.log('que responde addUser',response)
     })
     .catch((error)=>{
       console.log(error)
     })
-    
-    // user.id = uuidv4()
     setUsers([
       ...users,
       user

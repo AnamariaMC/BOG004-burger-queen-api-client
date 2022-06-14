@@ -26,8 +26,10 @@ const infoUser = async() => {
   })     
 }
 //PETICIÓN CREAR USUARIOS
-const createUser = async() => {
+const createUser = async(user) => {
   console.log('que es createUser', getToken().accessToken)
+  const roleObject = {};
+  roleObject[user.rol] = true;
   return await axios({
     method: "POST", 
     url:url+'users', 
@@ -36,11 +38,9 @@ const createUser = async() => {
           authorization: 'Bearer ' + getToken().accessToken,
     },
     data: {         
-      id: getId(),
-      email: "grace.hopper@systers.xyz",
-      roles: {
-        admin: true
-      }
+      email: user.email,
+      password: user.password,
+      roles: roleObject,
     },         
   })     
 }
