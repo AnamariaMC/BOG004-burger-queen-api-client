@@ -4,17 +4,16 @@ import '../css/admin.css'
 import UserTablet from '../componentsAdmin/userTablet'
 import AddUserForm from '../componentsAdmin/addUserForm'
 import EditUserForm from '../componentsAdmin/editUserForm'
-import { infoUser } from '../petitions'
-import { createUser } from '../petitions'
+import { infoUser, createUser, editedUser  } from '../petitions'
 import { useNavigate } from 'react-router'
 import { BiLogOut } from 'react-icons/bi'
 import logo from '../lib/logo.png'
 import { Link } from 'react-router-dom'
-import userEvent from '@testing-library/user-event'
 
 
 export default function Admin() {  
   const navigate = useNavigate();
+  
   const logOut=()=>{
     sessionStorage.clear();
     navigate('/')
@@ -43,7 +42,7 @@ export default function Admin() {
           }, [])       
                           
           
-          //agregar usuarios, (se debe hacer la petición post)
+  //agregar usuarios, (se debe hacer la petición post)
   const addUser = (user) => {
      createUser(user)
     .then((response)=>{
@@ -68,13 +67,16 @@ export default function Admin() {
   const [editing, setEditing] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({
-    id: null, name: '', username:''
+    id: null, email: '', password:'', rol:'',
   });
 
   const editRow = (user) => {
     setEditing(true);
     setCurrentUser({
-      id: user.id, name: user.name, username: user.username
+      id: user.id, 
+      email: user.email,
+      password: user.password,
+      rol: `${Object.keys(user.rol)}`,
     })
   }
 
@@ -93,13 +95,13 @@ export default function Admin() {
        <BiLogOut style={{color:'#F1F1F1'} } className='iconLogout' onClick={logOut}/>
       </nav>
     <div className="container" >
-      <h1 style={{color:"#F1F1F1", fontSize: 'px', fontWeight: 'bold', textAlign: 'center' }}>VISTA DEL ADMINISTRADOR</h1>
+      {/* <h1 style={{color:"#F1F1F1", fontSize: 'px', fontWeight: 'bold', textAlign: 'center' }}>VISTA DEL ADMINISTRADOR</h1> */}
       <div className="flex-row">
         <div className="flex-large">
-          <h2 style={{color:"#F1F1F1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}>Administrar Empleados</h2>
+          <h2 style={{color:"#F1F1F1", fontWeight: 'bold', textAlign: 'center' }}>Administrar Empleados</h2>
           <UserTablet
               users={users}
-              deleteUser={deleteUser}
+              deleteUser={deleteUser}              
               editRow={editRow}
           />
         </div>
@@ -107,7 +109,7 @@ export default function Admin() {
           {
             editing ? (
               <div>
-                <h2 >Editar Empleados</h2>
+                <h2 style={{color:"#F1F1F1", fontWeight: 'bold', textAlign: 'center' }}>Editar Empleados</h2>
                 <EditUserForm
                   currentUser={currentUser}
                   updateUser={updateUser}
@@ -115,7 +117,7 @@ export default function Admin() {
               </div>
             ) : (
               <div>
-              <h2 style={{color:"#F1F1F1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}>Agregar Empleados</h2>
+              <h2 style={{color:"#F1F1F1", fontWeight: 'bold', textAlign: 'center' }}>Agregar Empleados</h2>
               <AddUserForm addUser={addUser}/>
               </div>
             )
