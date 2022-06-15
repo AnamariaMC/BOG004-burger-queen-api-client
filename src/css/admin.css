@@ -1,45 +1,28 @@
-html {
-  line-height: 1.15;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
-  
+.flex-large{
+  margin: 20px;
+  padding: 10px;
+  background-color: #6b6a655c;
 }
 
-body {
-  margin: 0;
+button{  
+    background-color: #DFC020;
+    border-radius: 8px;
+    height: 2rem;
+    width: 5rem;
 }
-
-main {
-  display: block;
+.btnAdd{
+  background-color: #DFC020;
+    border-radius: 8px;
+    height: 2rem;
+    width: 20rem;
+    margin-top: 20px;
 }
-
-hr {
-  box-sizing: content-box;
-  /* 1 */
-  height: 0;
-  /* 1 */
-  overflow: visible;
-  /* 2 */
+input{
+  background-color: #f6f5ed;
+    border-radius: 5px;
+    height: 2rem;
+    width: 20rem;
 }
-
-.btn-Agregar{
-  top: 85%;
-  display: block;  
-	background: #b39c29;
-	font-weight: 600;
-	font-family: 'Open Sans', sans-serif;
-	border: none;
-	cursor: pointer;
-	/* width: 80%;*/
-	padding: 10px; 
-	border-radius: 5px;
-	color: rgb(0, 0, 0);
-	font-size: 16px;
-	transition: .3s ease all;
-}
-
-
 .msg-err {
   color: #DFC020;
 	font-weight: 600;
@@ -55,17 +38,6 @@ hr {
 
 }
 
-thead th {
-  border-bottom: 2px solid #f1f1f1;
-}
-
-tfoot th {
-  border-top: 2px solid #f1f1f1;
-}
-
-td {
-  border-bottom: 1px solid #f1f1f1;
-}
 
 th,
 td {
@@ -73,24 +45,17 @@ td {
   padding: 0.5rem;
 }
 
-caption {
-  padding: 1rem 0;
-  caption-side: bottom;
-  color: #f1f1f1;
-}
-
-
-.contain-table {
+/* .contain-table {
   overflow-x: auto;
-}
+} */
 
 
-html {
+/* html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font: normal normal normal 1rem/1.6 -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 1rem;
-}
+} */
 
 body {
   color: #f1f1f1;
@@ -98,7 +63,7 @@ body {
   font-size: 1rem;
 }
 
-/* // SIN ACTIVAR EDITAR // */
+/* // SIN ACTIVAR EDITAR //
 h1,
 h2,
 h3,
@@ -108,8 +73,8 @@ h5 {
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 1.2;
-  color: #f1f1f1;
-}
+  color: #7a3939;
+} */
 
 @media (min-width: 600px) {
   h1:not(:first-child),
@@ -430,7 +395,7 @@ dd {
 /**
  * Buttons
  */
-.button, a.button, button, [type=submit], [type=reset], [type=button] {
+/* .button, a.button, button, [type=submit], [type=reset], [type=button] {
   -webkit-appearance: none;
   display: inline-block;
   border: 1px solid #F0D95D;
@@ -518,10 +483,10 @@ a.full-button {
 }
 
 
-textarea {
+/* textarea {
   overflow: auto;
   height: auto;
-}
+} */
 
 fieldset {
   border: 1px solid #dedede;
@@ -549,7 +514,7 @@ label {
   max-width: 100%;
   display: block;
   margin: 1rem 0 0.5rem;
-}
+} */
 
 @media (min-width: 600px) {
   .split-form label {
@@ -569,7 +534,7 @@ textarea.has-error:hover,
 textarea.has-error:focus,
 textarea.has-error:active {
   border: 1px solid #d33c40;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 6px #f4cecf;
+  box-shadow: inset 0 1px 1px rgba(247, 243, 243, 0.504), 0 0 6px #f4cecf;
 }
 
 input.is-success, input.is-success:hover, input.is-success:focus, input.is-success:active,

@@ -16,6 +16,26 @@
 	margin-top: 2px;
 }
 
+.container-entregados{
+  /* position: absolute; */
+  /* top: 85%; */
+}
+
+.Entregado {
+  /* position: relative; */
+  background: #F0D95D;
+	font-weight: 600;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	cursor: pointer;
+	width: 80%;
+	padding: 10px;
+	border-radius: 5px;
+	color: rgb(0, 0, 0);
+	font-size: 16px;
+	transition: .3s ease all;
+}
+
 
 /* .resumen {
   background-color: #6b6a655c;

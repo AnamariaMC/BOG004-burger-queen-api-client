@@ -1,18 +1,18 @@
 .title{
-    margin: 20px;
+    margin: 20px;    
 }
 .containerTable{
-    border:  solid 1px #DFC020;;
+    border:  solid 1px #f0da5d60;;
     width: 90%;
     margin: 0 auto;
-    box-shadow: 2px 2px 7px 1px #f1df79;
+    /* box-shadow: 2px 2px 7px 1px #f1df79; */
 }
 
 .titleTable{
-    background-color: #f1e384;
+    background-color: #f0da5d60;
 }
 
 .containerTable th{
     text-align: center;
-    border: 1px solid #DFC020; 
+    border: 1px solid #f0da5d60;  
 }
