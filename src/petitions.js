@@ -45,6 +45,26 @@ const createUser = async(user) => {
   })     
 }
 
+//PETICIÓN EDITAR USUARIOS
+const editedUser = async(user) => {
+  console.log('que es createUser', getToken().accessToken)
+  const roleObject = {};
+  roleObject[user.rol] = true;
+  return await axios({
+    method: "PATCH", 
+    url:url+'users', 
+    headers: {
+      'content-type': 'application/json',
+          authorization: 'Bearer ' + getToken().accessToken,
+    },
+    data: {         
+      email: user.email,
+      password: user.password,
+      roles: roleObject,
+    },         
+  })     
+}
+
 
 const getUserData = () => {
   return JSON.parse(sessionStorage.getItem('user'));
@@ -68,4 +88,5 @@ export {
   getId,
   infoUser,
   createUser,
+  editedUser,
 }
