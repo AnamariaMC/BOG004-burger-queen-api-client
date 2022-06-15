@@ -4,14 +4,15 @@ import { useForm } from 'react-hook-form'
 
 export default function EditUserForm(props) {
 
-  //console.log(props.currentUser)
+  console.log(props.currentUser)
 
-  const {register, handleSubmit, formState: { errors }, setValue} = useForm({
+  const {register, handleSubmit, setValue, formState: { errors }} = useForm({
     defaultValues:props.currentUser
   });
 
-  setValue('name',props.currentUser.name);
-  setValue('username',props.currentUser.username);
+  setValue('email',props.currentUser.email);
+  setValue('password',props.currentUser.password);
+  setValue('rol',props.currentUser.rol);
 
   const onSubmit = (data, e) => {
     //console.log(data)
@@ -25,22 +26,29 @@ export default function EditUserForm(props) {
 
   return  (
     <form className='container-agregar' onSubmit={handleSubmit(onSubmit)}>
-      <label style={{color:"#F1F1F1", fontSize: '20px'}}>Nombre</label>
-      <input style={{color:"", fontSize: '20px', background:'#DFC020'}} type="text" name="name" {...register("name", {
+      <label >Correo</label>
+      <input  type="text" name="email" {...register("email", {
                 required: {value: true, message: 'Campo Requerido'}
             })}
        />
       <div className='msg-err'>
-        {errors?.name?.message}
+        {errors?.email?.message}
       </div>
-      <label style={{color:"#F1F1F1", fontSize: '20px'}}>Rol</label>
-      <input style={{color:"", fontSize: '20px', background:'#DFC020'}} type="text" name="username" {...register("username", {
+      <label >Contraseña</label>
+      <input type="password" name="password" {...register("password", {
             required: {value: true, message: 'Campo Requerido'}
         })} />
       <div className='msg-err'>
-        {errors?.username?.message}
+        {errors?.password?.message}
       </div>
-      <button className='btn-Agregar'>Agregar Empleado</button>
+      <label >Rol</label>
+      <input  type="text" name="rol" {...register("rol", {
+            required: {value: true, message: 'Campo Requerido'}
+        })} />
+      <div className='msg-err'>
+        {errors?.rol?.message}
+      </div>
+      <button className='btnAdd'>Agregar Empleado</button>
     </form>
   )
 }
