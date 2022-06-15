@@ -40,9 +40,9 @@ export default function List() {
     <div className='containerSummayOrders'>
   {order.map((orders, index) => {
     return(
-      <div key ={index}>
+      <div className='container-entregados' key ={index}>
         <ComponentEstate totalOrders = {orders} />
-        <button className='btnEntregado'
+        <button className='Entregado'
            onClick={() =>statusDelivered(orders.id, token.accessToken)}>ENTREGADO
         </button>        
      </div>
