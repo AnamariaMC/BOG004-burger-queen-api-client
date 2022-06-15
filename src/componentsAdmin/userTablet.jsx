@@ -1,8 +1,7 @@
 import React from 'react'
 
 export default function UserTablet(props) {
-  console.log(props.users)
-  console.log('soy ID', props.users.id)
+  console.log(props.users) 
 
   return (
     <table className='table-admin'>
