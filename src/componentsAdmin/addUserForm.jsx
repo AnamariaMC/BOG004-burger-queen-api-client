@@ -22,7 +22,7 @@ export default function AddUserForm({addUser}) {
             })}
        />      
        <label>Contraseña</label>
-      <input type="text" name="passsword" {...register("password", {
+      <input type="password" name="passsword" {...register("password", {
                 required: {value: true, message: 'Campo Requerido'}
             })}
        />   
@@ -33,7 +33,7 @@ export default function AddUserForm({addUser}) {
       <div>
         {errors?.rol?.message}
       </div>
-      <button>Agregar Empleado</button>
+      <button className='btnAdd'>Agregar Empleado</button>
     </form>
   )
 }
