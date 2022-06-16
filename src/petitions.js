@@ -29,7 +29,7 @@ const infoUser = async() => {
 const createUser = async(user) => {
   console.log('que es createUser', getToken().accessToken)
   const roleObject = {};
-  roleObject[user.rol] = true;
+  roleObject[`${Object.keys(user.rol)}`] = true;
   return await axios({
     method: "POST", 
     url:url+'users', 
@@ -46,25 +46,42 @@ const createUser = async(user) => {
 }
 
 //PETICIÓN EDITAR USUARIOS
-const editedUser = async(user) => {
-  console.log('que es createUser', getToken().accessToken)
-  const roleObject = {};
-  roleObject[user.rol] = true;
-  return await axios({
-    method: "PATCH", 
-    url:url+'users', 
-    headers: {
-      'content-type': 'application/json',
-          authorization: 'Bearer ' + getToken().accessToken,
-    },
-    data: {         
-      email: user.email,
-      password: user.password,
-      roles: roleObject,
-    },         
-  })     
-}
+const editedUser = async (userId, user)=>{
+      const objetRole = {};
+      objetRole[`${Object.keys(user.rol)}`] = true;
+      return await axios({
+          method: "PATCH",
+          url:url+'users/'+ userId,
+          headers: {
+              'content-type': 'application/json',
+                  authorization: 'Bearer ' + getToken().accessToken,
+          },
+          data: {
+              email: user.email,
+              password: user.password,
+              roles: objetRole,
+          },
+      })
+  }
 
+//---Peticion para eliminar Usuario---//
+const userDelete = async (id, user)=>{
+   const objetRole = {};
+  objetRole[`${Object.keys(user.rol)}`] = true;
+  return await axios({
+      method: "DELETE",
+      url:url+'users/'+ id,
+      headers: {
+          'content-type': 'application/json',
+              authorization: 'Bearer ' + getToken().accessToken,
+      },
+      data: {
+          email: user.email,
+          password: user.password,
+          roles: objetRole,
+      },
+  })
+}
 
 const getUserData = () => {
   return JSON.parse(sessionStorage.getItem('user'));
@@ -89,4 +106,5 @@ export {
   infoUser,
   createUser,
   editedUser,
+  userDelete ,
 }
