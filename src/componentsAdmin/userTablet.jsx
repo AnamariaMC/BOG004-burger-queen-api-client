@@ -28,7 +28,7 @@ export default function UserTablet(props) {
                   Editar
                 </button>
                 <button                   
-                  onClick={() => {props.deleteUser(user.id)}}
+                  onClick={() => {props.deleteUser(user.id, user)}}
                 >
                   Eliminar</button>
               </td>
