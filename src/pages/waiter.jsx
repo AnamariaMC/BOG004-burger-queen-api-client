@@ -8,7 +8,7 @@ export default function Waiter() {
   return (
     <>
     <div>
-      <Head text1 ='Ordenes' text2 ='Pedidos'/>
+      <Head text1 ='Ordenes' text2 ='Pendientes' text3 ='Entregados'/>
     </div>
     
     </>

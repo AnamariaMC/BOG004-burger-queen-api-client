@@ -17,7 +17,8 @@ export default function Head(props) {
       <img className='logo' src={logo} alt="logo" />      
         <Link to='/waiter/order' style={{color:"#f1f1f1"}} >{props.text1}</Link>
         <Link to='/waiter/list' style={{color:"#f1f1f1"}} >{props.text2}</Link>
-        <BiLogOut className='iconLogout' onClick={logOut}/>       
+        <Link to='/waiter/delivered' style={{color:"#f1f1f1"}} >{props.text3}</Link>
+        <BiLogOut style={{color:'#f1f1f1'} } className='iconLogout' onClick={logOut}/>       
     </nav>
     <section>
       <Outlet />

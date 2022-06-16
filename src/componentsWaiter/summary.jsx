@@ -15,7 +15,7 @@ export default function Summary() {
     emptyCart,
   } = useCart();
 
-  const [clients, setclients] = useState ('')
+  const [clients, setclients,] = useState ('')
 
   const creatObject =()=>{
     let total = localStorage.getItem('react-use-cart');
@@ -64,7 +64,7 @@ export default function Summary() {
     setclients(e.target.value)
   };
 
-if (isEmpty) return <h1 className='text-center' style={{ color: "#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}>RESUMEN DEL PEDIDO</h1>
+if (isEmpty) return <h1 className='text-center' style={{ color: "#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}> AGREGA LOS PRODUCTOS</h1>
 return (
   <section className='summary'>
     <h3 style={{ color: "#f1f1f1", fontWeight: 'bold', textAlign: 'center', justifyContent: 'space-between',  }}>Productos ({totalUniqueItems}) Total Productos: ({totalItems})</h3>    

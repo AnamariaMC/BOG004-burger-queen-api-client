@@ -17,21 +17,6 @@ const products = (token) => {
     })     
 }
 
-// Peticion para obtener la fecha actual
-const getDateActual = () => {
-  let dateActual= new Date();
-  console.log('SOY FECHA', dateActual)
-   return dateActual.getFullYear() +
-    '-' +
-    (dateActual.getMonth() + 1 )+
-    '-' +
-   dateActual.getDate() +
-    ' ' +
-    dateActual.getHours() +
-    ':' +
-    dateActual.getMinutes()
-} 
-
   
 // Peticion para crear estructura de la orden
 const ordenPetition = async (token, items, clients) =>{
@@ -49,8 +34,8 @@ const ordenPetition = async (token, items, clients) =>{
           userId: getId(),
           client: clients,
           products: items,
-          status: 'pendings',
-          dataEntry: getDateActual(),
+          status: 'pending',
+          dateEntry: new Date().toLocaleString('sv'),
           },
   
   })
@@ -68,13 +53,35 @@ const getOrder = (token) => {
 }
 
 
-const StatusOrder = (id, update, token) => {
-  return axios.patch(url+'orders/'+ id, update, {
-         headers: {
-             "content-type": "application/json",
-             authorization: 'Bearer ' + token
-         }
-     });
- }
+const StatusOrder = async(orderId, token) => {
+    
+  return await axios({
+      method: "PATCH",
+      url:url+'orders/'+ orderId,
+      headers: {
+          'content-type': 'application/json',
+          authorization: 'Bearer ' + token,
+      },
+      data: {
+          status: 'delivering',
+          dateProcessed: new Date().toLocaleString('sv'),
+      }
+  })
+}
 
- export { products, ordenPetition, getOrder, StatusOrder}
+const statusDelivered = async(orderId, token) => {
+  console.log('order id', orderId, 'token', token)
+  return await axios({
+      method: "PATCH",
+      url:url+'orders/'+ orderId,
+      headers: {
+          'content-type': 'application/json',
+          authorization: 'Bearer ' + token,
+      },
+      data: {
+          status: 'delivered',
+      }
+  })
+}
+
+ export { products, ordenPetition, getOrder, StatusOrder, statusDelivered}

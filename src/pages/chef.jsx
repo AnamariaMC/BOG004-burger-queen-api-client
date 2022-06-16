@@ -19,12 +19,12 @@ export default function Chef() {
         <h2 style={{color:"#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center' }}> BIENVENIDO CHEF </h2> 
         <BiLogOut style={{color:'#f1f1f1'} } className='iconLogout' onClick={logOut}/>
       </nav>
-      <hr></hr>        
+              
         <div>          
           <h2 style= {{color:"#f1f1f1", fontSize: '20px', fontWeight: 'bold', textAlign: 'center'}}> PEDIDOS PENDIENTES </h2>
           <SummaryOrders/>
         </div>
-        <div>
+        <div>        
         <SummaryReady/>
         </div>
         

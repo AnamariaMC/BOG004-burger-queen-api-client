@@ -2,14 +2,13 @@ import React from 'react'
 import Items from './Items'
 import '../css/chef.css'
 import { StatusOrder } from '../orderpetitions'
-import { getId, getToken } from '../petitions'
+import { getToken } from '../petitions'
 
 
-export default function StructureOrder({totalOrders}) {
-    const productId = getId();
-    const productToken = getToken();
-    const newStatus = () => {
-        StatusOrder(productId, productToken)
+export default function StructureOrder({totalOrders}) {    
+    const token = getToken();
+    const newStatus = (orderId) => {
+        StatusOrder(orderId, token.accessToken)
         .then((response) => {
             console.log('resuesta de newStatus', response)
         })
@@ -22,7 +21,7 @@ export default function StructureOrder({totalOrders}) {
         <div className='containerOrders'>
           <div className='nameDate'>
             <p style={{color:'#FE8D06', fontWeight:'700'}}>{totalOrders.client}</p>
-            <p style={{color:'#FE8D06', fontWeight:'700'}}>{totalOrders.dataEntry}</p>
+            <p style={{color:'#FE8D06', fontWeight:'700'}}>{totalOrders.dateEntry}</p>
           </div>
           <h5>Pedido:</h5>
             <Items style={{color:'#FE8D06', fontWeight:'700'}}
@@ -30,7 +29,9 @@ export default function StructureOrder({totalOrders}) {
                 qty = {totalOrders.quantity}
 
             />
-            <button className='btnListo' type='submit' onClick={newStatus}>Listo</button>
+            <button className='btnListo' type='submit' id='btnListo'
+            onClick={() =>newStatus(totalOrders.id)}
+            >Listo</button>
             <status style={{color:'#FE8D06', fontWeight:'700'}} />
         </div>
       </div> 

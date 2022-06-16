@@ -6,10 +6,34 @@
   align-items: center;
   font-size:x-large;  
 }
+
+.head :hover {
+  background-color: rgba(243, 228, 16, 0.705);
+}
 .logo {
   width: 80px;
   height: 80px;
 	margin-top: 2px;
+}
+
+.container-entregados{
+  /* position: absolute; */
+  /* top: 85%; */
+}
+
+.Entregado {
+  /* position: relative; */
+  background: #F0D95D;
+	font-weight: 600;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	cursor: pointer;
+	width: 80%;
+	padding: 10px;
+	border-radius: 5px;
+	color: rgb(0, 0, 0);
+	font-size: 16px;
+	transition: .3s ease all;
 }
 
 

@@ -6,7 +6,7 @@
 .iconLogout {
   width: 50px;
   height: 50px;
-	margin-top: 2px;
+	margin: 20px;
 }
 hr {
   background-color: yellow;
@@ -23,14 +23,15 @@ hr {
   
 }
 
+
 .containerOrders {
   background-color: #f0da5d66;
   position: relative;
-  width: 20vw;
+  width: 25vw;
+  
   margin: 20px;
   padding: 10px 10px 30px 10px ;
-  display: flex;
-  flex-wrap: wrap; 
+  flex-direction: column; 
   /* justify-content: space-around; */
 }
 
@@ -50,3 +51,5 @@ hr {
 	font-size: 16px;
 	transition: .3s ease all;
 }
+
+
