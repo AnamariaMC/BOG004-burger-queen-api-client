@@ -1,11 +1,11 @@
 import React from 'react'
-import ProductsMenu from './products'
+import ProductsMenu from './ProductsMenu'
 import Summary from './summary'
 import { CartProvider } from 'react-use-cart'
 
-
+// Componente que contiene el menu y la orden
 export default function Order() {
-  
+
   return (    
     <> 
       <CartProvider>      
