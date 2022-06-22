@@ -1,11 +1,10 @@
 import { useCart } from "react-use-cart";
+// Hooks externo que permite manejo de estado del carro de compras
 
 const Menu = (props) => {
-  const { addItem } = useCart();
-  // const onClick = () => {
-  //   props.handleAddProduct({name: props.name, price: props.price, id: props.id, type: props.type});
-  // }
 
+  const { addItem } = useCart();
+ // Nos permite visualizar los productos: nombre, precio e imagen
   return (
     <div className='product' 
     onClick={() =>addItem(props.item)}>
@@ -15,8 +14,7 @@ const Menu = (props) => {
         <p>{props.name}</p>
         <p className='product-price'>${props.price}</p>
      </div>
-      {/* <p>{props.type}</p> */}
-    </div>
+     </div>
   );
 };
 
