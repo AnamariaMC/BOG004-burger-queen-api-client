@@ -4,7 +4,7 @@ import '../css/admin.css'
 import UserTablet from '../componentsAdmin/userTablet'
 import AddUserForm from '../componentsAdmin/addUserForm'
 import EditUserForm from '../componentsAdmin/editUserForm'
-import { infoUser, createUser, editedUser  } from '../petitions'
+import { infoUser, createUser, userDelete } from '../petitions'
 import { useNavigate } from 'react-router'
 import { BiLogOut } from 'react-icons/bi'
 import logo from '../lib/logo.png'
@@ -38,8 +38,11 @@ export default function Admin() {
         }
         
         useEffect(()=> {       
-         getInfoUsers()               
-          }, [])       
+          const interval = setInterval(()=>{
+            getInfoUsers()
+          },8000)
+          return () => clearInterval(interval)
+        },[])       
                           
           
   //agregar usuarios, (se debe hacer la petición post)
@@ -58,11 +61,18 @@ export default function Admin() {
   }
 
   //eliminar usuarios
-  const deleteUser = (id) =>{
-    const arrayFiterUser = users.filter(user => user.id !== id )
-    setUsers(arrayFiterUser)
-  }
-  
+ const deleteUser = (id, users) =>{
+  console.log('soy id y users',id, users)
+  userDelete(id, users)
+      .then((response)=>{
+          console.log('soy DELETE', response)
+      })
+      .catch((error)=>{
+          console.log(error)
+      })
+  const arrayFiterUser = users.filter(user => user.id !== id )
+  setUsers(arrayFiterUser)
+}
   //editar usuarios
   const [editing, setEditing] = useState(false);
 

@@ -7,6 +7,9 @@ export default function AddUserForm({addUser}) {
   const {register, handleSubmit, formState: { errors }} = useForm();
 
   const onSubmit = (data, e) => {
+    data.rol = {
+      [data.rol]:true
+    }
     //console.log(data)
     addUser(data)
     

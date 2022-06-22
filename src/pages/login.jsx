@@ -8,8 +8,10 @@ import { useState } from 'react';
 
 const LoginForm = () => {
 
+  // UseNavigate  permite  navegar a la vista solicitada
   const navigate = useNavigate(); 
 
+  // Se crea variable de estado para error del formulario
   const [userError, setUserError] = useState('');
    
 	return (      
@@ -21,14 +23,14 @@ const LoginForm = () => {
           password:''
         }}
         validate={(valores) => {
-          let errores = {};
-          //validación email
+          let errores = {}; // Array de objeto para imprimir los errores
+      //Validación email 
           if(!valores.email){
             errores.email = 'Por favor ingresa un email'
           } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
               errores.email = 'El correo es incorrecto'
           }
-          //validación contraseña
+      //Validación contraseña
           if(!valores.password){
             errores.password = 'Por favor ingresa una contraseña'
           } else if (!/^([0-9]){6,}$/.test(valores.password)){
@@ -38,10 +40,9 @@ const LoginForm = () => {
         }}
        onSubmit ={(valores, { resetForm }) => {                  
           let data = { email: valores.email, password: valores.password };
-          login(data)
-          .then(function (response) { 
+          login(data) // Se resuelve la petitcion de Login
+          .then((response) => { 
             saveIdUser(response.data)           
-            //console.log('que es saveIdUser:',saveIdUser(response.data));
             console.log('que responde:',response);
             const activeUser = JSON.parse(sessionStorage.user);
             const userRole = activeUser.user.roles;
@@ -63,7 +64,7 @@ const LoginForm = () => {
           <Form className="LoginForm">
             <div>
               <label htmlFor="email">Correo</label>
-              <Field 
+              <Field  // o campo 
                 type="email" 
                 id="email" 
                 name="email" 

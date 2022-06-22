@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { editedUser } from '../petitions';
 
 
 export default function EditUserForm(props) {
@@ -15,15 +16,21 @@ export default function EditUserForm(props) {
   setValue('rol',props.currentUser.rol);
 
   const onSubmit = (data, e) => {
-    //console.log(data)
+    data.rol = {
+      [data.rol]:true
+    }
+    editedUser(data.id, data)
+    .then((response)=>{
+      return response
+    })
+    .catch((error)=>{
+      return error
+    })
     data.id = props.currentUser.id
-   
     props.updateUser(props.currentUser.id, data)
-    
     //limpia los campos
     e.target.reset();
   }
-
   return  (
     <form className='container-agregar' onSubmit={handleSubmit(onSubmit)}>
       <label >Correo</label>
