@@ -35,7 +35,7 @@ export default function SummaryOrders() {
     <div className='containerSummayOrders'>
       {order.map((orders, index) => {
         return(
-          <div key ={index}>
+          <div className='structureOrder' key ={index}>
             <StructureOrder
             totalOrders = {orders}
          />

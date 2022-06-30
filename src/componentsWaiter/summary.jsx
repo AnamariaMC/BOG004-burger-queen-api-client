@@ -73,7 +73,7 @@ return (
   <section className='summary'>
     <h3 style={{ color: "#f1f1f1", fontWeight: 'bold', textAlign: 'center', justifyContent: 'space-between',  }}>Productos ({totalUniqueItems}) Total Productos: ({totalItems})</h3>    
     <div className='container-client'>            
-        <label>Nombre del Cliente</label>
+        <label className='name-client'>Nombre del Cliente</label>
         <input
                 id = 'orderClient'
                 type='text'
