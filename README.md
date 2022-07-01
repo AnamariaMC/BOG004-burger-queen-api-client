@@ -159,9 +159,9 @@ la plataforma para mantener actualizado la informacion de mis trabajadorxs.
 ![prototipo-BQ2](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/prototipoBQ2.PNG)
 
 ## 5. Producto Final
+
 ## 6. Creado Por:
 
----
-⌨️ con ❤️ por [AnamariaMedina](https://github.com/AnamariaMC) y 
-[KarenAlarcon](https://github.com/KalarconYarz) 😊
+[AnamariaMedina](https://github.com/AnamariaMC) y 
+[KarenAlarcon](https://github.com/KalarconYarz) 😊 con ❤️.
 
