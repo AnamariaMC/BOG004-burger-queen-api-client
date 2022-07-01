@@ -159,6 +159,22 @@ la plataforma para mantener actualizado la informacion de mis trabajadorxs.
 ![prototipo-BQ2](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/prototipoBQ2.PNG)
 
 ## 5. Producto Final
+##### Vista del inicio de sesión /Login
+![login](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/loginBQ.PNG)
+![login-con-errores](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/msjerrorloginBQ.PNG)
+
+##### Vista del Mesero/Waiter 
+![waiter-productos](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/waiter1.PNG)
+![waiter-resumen](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/waiter4.PNG)
+![Pedidos-pendientes-mesero](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/waiter2.PNG)
+![Pedidos-entregados](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/waiter3.PNG)
+
+##### Vista del Chef
+![]()
+
+##### Vista del Administrador
+![administrador](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/admin1.PNG)
+
 
 ## 6. Creado Por:
 
