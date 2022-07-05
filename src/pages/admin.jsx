@@ -40,7 +40,7 @@ export default function Admin() {
         useEffect(()=> {       
           const interval = setInterval(()=>{
             getInfoUsers()
-          },8000)
+          },3000)
           return () => clearInterval(interval)
         },[])       
                           
