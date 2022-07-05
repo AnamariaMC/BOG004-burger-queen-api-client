@@ -62,19 +62,29 @@
     
 }
 .container-client{
+    display: flex;
+    justify-content: space-around;
     padding: 5px;
     margin: 10px;
     background-color: #f0da5d60;
     font-size: 20px;
     font-weight: bold
     
+    
+
+    
 }
 .client{
+        
     background-color: #f0da5d60;
     border: none;
-    margin-left: 20px;
+    margin: 20px;
     width: 20rem;
     height: 20px;
+    color: #0f0e0e;
+    font-size: 20px;
+    font-weight: bold
+   
 }
 .title-table{
     font-size: 20px;

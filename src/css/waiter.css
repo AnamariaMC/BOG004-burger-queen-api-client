@@ -17,25 +17,36 @@
 }
 
 .container-entregados{
-  /* position: absolute; */
-  /* top: 85%; */
+  background-color: #f0da5d66;
+  position: relative;
+  width: 25vw;
+  
+  margin: 20px;
+  padding: 10px 10px 10px 10px ;
+  flex-direction: column; 
+  
+}
+.containerOrders {
+  background: none;
+  margin: auto;
 }
 
 .Entregado {
-  /* position: relative; */
-  background: #F0D95D;
+  position: absolute;
+  top: 95%;
+  display: block;
+	background: #F0D95D;
 	font-weight: 600;
 	font-family: 'Open Sans', sans-serif;
 	border: none;
 	cursor: pointer;
-	width: 80%;
-	padding: 10px;
+	width: 80%;	
 	border-radius: 5px;
 	color: rgb(0, 0, 0);
 	font-size: 16px;
 	transition: .3s ease all;
+  
 }
-
 
 /* .resumen {
   background-color: #6b6a655c;

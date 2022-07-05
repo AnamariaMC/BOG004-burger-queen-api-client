@@ -43,7 +43,7 @@ export default function SummaryReady() {
       (1000 * 60)
   );
         return(
-          <div key ={index}>
+          <div className='structureOrder' key ={index}>
             <p style={{color: "#F1F1F1", fontSize: '16px' }}> Tiempo: { totalTime } Minutos</p>
             <ComponentEstate
             totalOrders = {orders}

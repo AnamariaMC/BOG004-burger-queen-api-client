@@ -2,26 +2,37 @@
   margin: 20px;
   padding: 10px;
   background-color: #6b6a655c;
+ 
 }
 
 button{  
     background-color: #DFC020;
     border-radius: 8px;
     height: 2rem;
-    width: 5rem;
+    width: 50%;
+    font-weight: bold; 
 }
 .btnAdd{
   background-color: #DFC020;
     border-radius: 8px;
     height: 2rem;
-    width: 20rem;
+    width: 100%;
     margin-top: 20px;
+    font-weight: bold; 
+}
+.logo-exit {
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: x-large;
 }
 input{
   background-color: #f6f5ed;
     border-radius: 5px;
     height: 2rem;
-    width: 20rem;
+    width: 100%;
 }
 .msg-err {
   color: #DFC020;

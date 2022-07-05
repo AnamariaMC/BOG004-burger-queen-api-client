@@ -1,22 +1,25 @@
 import '../css/summary.css'
 import React, { useState } from 'react'
 import { useCart } from 'react-use-cart'
+// UseCart Hooks externo que permite manejo de estado del carro de compras
 import { getToken } from '../petitions';
 import { ordenPetition } from '../orderpetitions';
 
 export default function Summary() {
+
+  //Metodos de UseCart //
   const { isEmpty,
     totalUniqueItems,
     items,
     totalItems,
     cartTotal,
-    updateItemQuantity,
-    removeItem,
-    emptyCart,
+    updateItemQuantity, 
+    removeItem, 
+    emptyCart, 
   } = useCart();
 
   const [clients, setclients,] = useState ('')
-
+ // Funcion para crear nueva estructura de objeto //
   const creatObject =()=>{
     let total = localStorage.getItem('react-use-cart');
     let arrayItems = [];
@@ -56,6 +59,7 @@ export default function Summary() {
       });
     emptyCart();
     
+    //--- cambio de estado que limpia el input nombre cliente ---//
     const input = document.getElementById('orderClient');
     const e = {
       target: input
@@ -69,7 +73,7 @@ return (
   <section className='summary'>
     <h3 style={{ color: "#f1f1f1", fontWeight: 'bold', textAlign: 'center', justifyContent: 'space-between',  }}>Productos ({totalUniqueItems}) Total Productos: ({totalItems})</h3>    
     <div className='container-client'>            
-        <label>Nombre del Cliente</label>
+        <label className='name-client'>Nombre del Cliente</label>
         <input
                 id = 'orderClient'
                 type='text'
@@ -81,8 +85,7 @@ return (
           </input>
           
     </div>
-    {/* <div className='title-table'>PRODUCTO  PRECIO  CANTIDAD</div> */}
-    <section className='summaryTable'>       
+      <section className='summaryTable'>       
         {items.map((item, index) => {
           return (
             <div key={index.toString()} className='contentSummary'>
@@ -94,6 +97,7 @@ return (
               <div > {item.price} </div>
               <div> ({item.quantity})</div>
               <div className='remove-add-delete'>
+              {/*  Actualizar cantidad de items */}
                 <button
                   className='remove'
                   onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
@@ -116,6 +120,7 @@ return (
         <h2 style={{ color: "#f1f1f1" }}> Total: $ {cartTotal} </h2>
       </div>
       <div className='buttons'>
+      {/* Cancelar pedidos */}
         <button  className='btn-cancel' style={{fontWeight: 'bold'}}
           onClick={() => emptyCart()} 
         >CANCELAR</button>
@@ -125,5 +130,4 @@ return (
       </div>
     </div>
   </section>
-)
-      }
+)}

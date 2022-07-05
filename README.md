@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Burger Queen (API Client)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Índice
 
-## Available Scripts
+* [1. Preámbulo](#1-preámbulo)
+* [2. Resumen del proyecto](#2-resumen-del-proyecto)
+* [3. Criterios de aceptación del proyecto](#5-criterios-de-aceptación-del-proyecto)
+* [4. Prototipo](#4-prototipo)
+* [5. Producto Final](#5-producto-final)
+* [6. Creado Por](#6-creado-por)
 
-In the project directory, you can run:
 
-### `npm start`
+***
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 1. Preámbulo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Utilizando [React](https://reactjs.org/) contruimos una [SPA](https://es.wikipedia.org/wiki/Single-page_application) en la cual entregamos una API funcional a nuestrx clientx
+con la que podra administrar su negocio y trabajadores, montar y tomar pedidos por los meseros y los chef.
 
-### `npm test`
+## 2. Resumen del proyecto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Un pequeño restaurante de hamburguesas, que está creciendo, necesita un
+sistema a través del cual puedan tomar pedidos usando una _tablet_, y enviarlos
+a la cocina para que se preparen ordenada y eficientemente.
 
-### `npm run build`
+![burger-queen](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/main/src/lib/hamburger.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Este proyecto tiene dos áreas: interfaz (cliente) y API (servidor). Nuestra
+clienta nos ha solicitado desarrollar la interfaz que se integre con la API
+que otro equipo de desarrolladoras está trabajando simultáneamente
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 3. Criterios de aceptación del proyecto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Definición del producto
 
-### `npm run eject`
+Para la definición del producto se trabajaron 5 Historias de Usuario que fueron desarroladas a lo largo de 5 Sprints en los cuales se incluyo la elaboración del  prototipo hasta el desarrollo de las funcionalidadades. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+***
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### [Historia de usuario 1] Mesero/a debe poder ingresar al sistema, si el admin ya le ha asignado credenciales
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Yo como meserx quiero poder ingresar al sistema de pedidos.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### [Historia de usuario 2] Mesero/a debe poder tomar pedido de cliente/a
 
-## Learn More
+Yo como meserx quiero tomar el pedido de unx clientx para no depender de mi mala
+memoria, para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y
+que se puedan ir preparando en orden.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### [Historia de usuario 3] Jefe de cocina debe ver los pedidos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Yo como jefx de cocina quiero ver los pedidos de lxs clientxs en orden y
+marcar cuáles están listos para saber qué se debe cocinar y avisar a lxs meserxs
+que un pedido está listo para servirlo a un clientx.
 
-### Code Splitting
+#### [Historia de usuario 4] Meserx debe ver pedidos listos para servir
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Yo como meserx quiero ver los pedidos que están preparados para entregarlos
+rápidamente a lxs clientxs que las hicieron.
 
-### Analyzing the Bundle Size
+#### [Historia de usuario 5] Administrador(a) de tienda debe administrar a sus trabajadorxs
+Yo como administrador(a) de tienda quiero gestionar a los usuarios de
+la plataforma para mantener actualizado la informacion de mis trabajadorxs.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+***
+## 4. Prototipo
 
-### Making a Progressive Web App
+![prototipo-BQ1](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/prototipoBQ1.PNG)
+![prototipo-BQ2](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/prototipoBQ2.PNG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+***
+## 5. Producto Final
+### Vista del inicio de sesión /Login
+![login](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/loginBQ.PNG)
+![login-con-errores](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/msjerrorloginBQ.PNG)
 
-### Advanced Configuration
+### Vista del Mesero/Waiter 
+![waiter-productos](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/waiter1.PNG)
+![waiter-resumen](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/waiter4.PNG)
+![Pedidos-pendientes-mesero](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/waiter2.PNG)
+![Pedidos-entregados](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/waiter3.PNG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Vista del Chef
+![chef](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/chef1.PNG)
 
-### Deployment
+### Vista del Administrador
+![administrador](https://github.com/AnamariaMC/BOG004-burger-queen-api-client/blob/desarrollo/src/lib/admin1.PNG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+***
+## 6. Creado Por:
+[AnamariaMedina](https://github.com/AnamariaMC) y 
+[KarenAlarcon](https://github.com/KalarconYarz) 😊 con ❤️.
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -2,7 +2,7 @@ import axios from "axios";
 import { getId } from './petitions'
 
 //import { getToken } from "./petitions";
-const url = 'http://localhost:8080/';
+const url = process.env.REACT_APP_API_URL;
 
 // peticion para crear la orden con los productos
 const products = (token) => {
@@ -11,7 +11,7 @@ const products = (token) => {
       url:url+'products', 
       headers: {
         'content-type': 'application/json',
-            authorization: 'Bearer ' + token,
+            authorization: 'Bearer ' + token.accessToken,
       },
         
     })     

@@ -6,22 +6,26 @@ import  Menu  from './menu'
 
 export default function ProductsMenu({handleAddProduct}) {
   
+  // Variable de estado para productos seleccionados
   const [filteredProducts, setFilteredProducts] = useState([])
+ 
   const token = getToken();
 
-  useEffect(()=>{
-    products(token.accessToken) // llamamos a la función products() que está en el provider
+  // El componente debe ejecutar/ resolver la promesa despues de renderizarse
+  useEffect(()=>{ 
+    products(token) // llamamos a la función products() que está en el provider
     
     .then((response) => {        
         setFilteredProducts(response.data)        
       })
       .catch(() => {});
-  }, []);
+  }, [token]);
 
+
+  // Retorna el menu componente con  todos los productos
   return (
     <div className='ollProducts'>
-      {/* <h2 style={{color:'#bde0fe'}}>menu de ordenes</h2> */}
-      {filteredProducts.map((producto, index) => {
+     {filteredProducts.map((producto, index) => {
         return (
           <div key={index.toString()} className='productsMenu'>
              <Menu 
