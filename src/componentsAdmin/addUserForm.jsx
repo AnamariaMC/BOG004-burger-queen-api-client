@@ -19,7 +19,7 @@ export default function AddUserForm({addUser}) {
 
   return (
     <form className='form-add' onSubmit={handleSubmit(onSubmit)}>
-      <label>correo</label>
+      <label>Correo</label>
       <input type="text" name="email" {...register("email", {
                 required: {value: true, message: 'Campo Requerido'}
             })}
